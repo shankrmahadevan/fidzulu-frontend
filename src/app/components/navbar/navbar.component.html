@@ -1,0 +1,40 @@
+<div class="navbar" >
+    <div>
+        <fa-icon [icon]="icons.faBars"></fa-icon>
+    </div>
+    <h1 class="title">FidZulu</h1>
+    <div ngbDropdown class="d-inline-block">
+        <button type="button" class="btn nav-dropdown" id="dropdownBasic1" ngbDropdownToggle>
+            Location
+            <p>{{country}}</p>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button (click)="changeCountry('India')" ngbDropdownItem >India</button>
+            <button (click)="changeCountry('US')" ngbDropdownItem>US</button>
+            <button (click)="changeCountry('SC')" ngbDropdownItem>SC</button>
+        </div>
+    </div>
+    <div class="search-container" [ngClass]="onFocus ? 'search-focus': ''" >
+        <div ngbDropdown class="d-inline-block">
+            <button type="button" class="category-dropdown" id="dropdownBasic1" ngbDropdownToggle>
+                {{category}}
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button (click)="changeCategory('Books')" ngbDropdownItem >Books</button>
+                <button (click)="changeCategory('Toys')" ngbDropdownItem>Toys</button>
+                <button (click)="changeCategory('Bikes')" ngbDropdownItem>Bikes</button>
+            </div>
+            
+        </div>
+        <input #searchInput class="search-input" placeholder="Search Fidzulu" (focus)="changeFocus(true)" (blur)="changeFocus(false)" />
+        <button class="search-btn"><fa-icon [icon]="icons.faMagnifyingGlass"></fa-icon></button>
+    </div>
+    <div class="nav-btns">
+        <button class="nav-btn">
+            Login
+        </button>
+        <button class="nav-btn">
+            Cart
+        </button>
+    </div>
+</div>
