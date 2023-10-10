@@ -4,6 +4,12 @@
     margin-top: 20px;
 }
 
+.custom-image {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+  }
+
 .product-image img {
     max-width: 100%;
     height: auto;
@@ -18,8 +24,22 @@
     color: #f1c40f; /* Yellow color for stars */
 }
 
+
 .product-price {
-    font-size: 1.2rem;
     font-weight: bold;
-    color: #e74c3c; /* Red color for price */
-}
+  }
+  
+  .green-text {
+    color: green;
+  }
+  
+  .red-text {
+    color: red;
+    font-size: 50%; /* Half the size */
+  }
+  
+  .italic-text {
+    font-style: italic;
+    font-size: 75%; /* Smaller size */
+  }
+  
