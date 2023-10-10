@@ -11,6 +11,12 @@ reviews = [
     {date:'2 days ago', stars: 4.5, name: 'Shankar', description: 'This product exceeded my expectations! It is of excellent quality, and I absolutely love it. I highly recommend it to everyone.' },
     {date:'3 days ago', stars: 2.0, name: 'Dhanush', description: 'The quality of this product is good, but there is still room for improvement. I have been using it for a while, and it does its job decently.' },
     {date:'4 days ago', stars: 5.0, name: 'Lalith', description: 'I can confidently say that this product is perfect in every aspect. From the build quality to the performance, it excels in every way.' },
+  {
+    date: '4 days ago',
+    stars: 5.0,
+    name: 'Lalith',
+    description: 'I can confidently say that this product is perfect in every aspect. From the build quality to the performance, it excels in every way.'
+  },
   ];
 
   products = [
