@@ -1,0 +1,88 @@
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@font-face {
+  font-family: 'fidelity-sans';
+  src: url('../../../assets/fonts/FidelitySansRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/*Remove*/
+.navbar {
+  height: 100px;
+}
+
+.footer {
+  height: 100px;
+}
+
+/*Remove*/
+.product-details {
+  background-color: ivory;
+  height: 100vh;
+}
+
+.product-img-thumbnail {
+  width: fit-content;
+  height: fit-content;
+}
+
+.product-img-thumbnail img {
+  height: 50%;
+}
+
+.product-details-container {
+  margin-left: 30px;
+}
+
+#product-name{
+  font-family:fidelity-sans;
+}
+
+.checked {
+  color: #f5de07;
+  font-size: 20px;
+}
+
+.unchecked {
+  font-size: 20px;
+}
+
+.fa-star {
+  margin-left: 5px;
+}
+
+#review-stars-text {
+  margin-right: 5px;
+}
+
+.price {
+  /*text-align: right;*/
+  /*width: 200px;*/
+  margin: 20px 20px 20px 40px;
+}
+
+#final-price, #you-save {
+  color: #d40505;
+}
+
+#final-price {
+  font-size: 20px;
+}
+
+#you-save {
+  font-size: 18px;
+}
+
+.description {
+  margin-top: 30px;
+}
+
+.description p {
+  margin-left: 10px;
+  width: 50%;
+  text-align: justify;
+}
+
+.contact-placeholder {
+  margin-top: 50px;
+}

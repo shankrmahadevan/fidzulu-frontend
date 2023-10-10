@@ -1,1 +1,37 @@
-<p>product-info works!</p>
+<div class="navbar"></div>
+<div class="product-details row">
+  <div class="product-img-thumbnail col-lg-4 offset-1">
+    <img [src]="product.img_thumbnail">
+  </div>
+  <div class="product-details-container col-lg-6">
+    <div class="product-name row">
+      <div class="col-lg-6"><h1 id="product-name">{{product.product_name}}</h1></div>
+      <div class="review-stars col-lg-6">
+        <span id="review-stars-text">4 (1,683)</span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star unchecked"></span>
+      </div>
+    </div>
+    <div class="price">
+      <p><span class="text-muted">M.R.P: </span><s>Rs.{{get_mrp() | number:'.2'}}</s></p>
+      <p><span class="text-muted">Price: </span><span id="final-price">Rs. {{get_final_price()  | number:'.2'}}</span>
+      </p>
+      <p><span class="text-muted">You Save: </span><span id="you-save">Rs. {{get_you_save() | number:'.2'}}
+        (10%)</span></p>
+    </div>
+    <div class="description">
+      <h2>About this item</h2>
+      <p>{{product.product_description}}</p>
+    </div>
+    <div class="contact-placeholder">
+      <p> <span class="fa fa-commenting-o" style="margin-right: 5px"></span>Got any questions? <span style="text-decoration:underline">Contact us</span></p>
+      <p><span class="fa fa-cube" style="margin-right: 5px"></span>Free shipping over $150</p>
+      <p><span class="fa fa-share-square-o" style="margin-right: 5px"></span>Share</p>
+    </div>
+    <hr>
+  </div>
+</div>
+<div class="footer"></div>
