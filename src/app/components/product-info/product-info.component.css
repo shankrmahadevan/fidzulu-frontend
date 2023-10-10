@@ -86,3 +86,28 @@
 .contact-placeholder {
   margin-top: 50px;
 }
+/* @import '~@fortawesome/fontawesome-free/css/all.css';*/
+
+.rating {
+  color: #568200;
+}
+
+.card {
+  width: 300px;
+  margin: 10px;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.border{
+  border: 5px solid black;
+}
+
+.heading{
+
+  text-align:center;
+}
+
+.similarProducts{
+  background-color:lightblue;
+}

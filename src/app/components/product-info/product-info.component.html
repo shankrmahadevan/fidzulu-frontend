@@ -34,4 +34,52 @@
     <hr>
   </div>
 </div>
+<br><br>
+<h3 class="heading">Don't take our word for it</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let review of reviews">
+      <div class="card mb-3 border">
+        <div class="card-body">
+          <p style="float:right;font-size:small;color:grey">{{review.date}}</p>
+          <div class="rating">
+            <ng-container *ngFor="let star of getStarArray(review.stars)">
+              <i class="fas fa-star"></i>
+            </ng-container>
+          </div>
+          <h5 class="card-title">{{review.name}}</h5>
+          <p class="card-text">{{ review.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="similarProducts">
+<br><br><h3 class="heading">You may also like</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let product of products">
+            <div class="card mb-3 border">
+                <div class="card-body">
+                    <!-- <p style="float:right;font-size:small;color:grey">{{product.date}}</p> -->
+                    <!-- <div class="rating">
+                        <ng-container *ngFor="let star of getStarArray(product.stars)">
+                        <i class="fas fa-star"></i>
+                        </ng-container>
+                    </div> -->
+                    <img src="{{product.image}}" style="height:150px;width:260px">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text">{{ product.price }}</p>
+                    <button type="button" class="btn btn-success">+ Quick Add</button>
+                    <p style="float:right;">4.3</p>
+                    <i style="float:right;color:rgb(221, 153, 26)" class="fas fa-star"></i>
+                </div>
+            </div>
+       </div>
+    </div>
+</div>
+<br><br>
+</div>
+<br><br>
 <div class="footer"></div>
