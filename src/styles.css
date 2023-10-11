@@ -11,3 +11,23 @@
     margin: 0;
 }
 
+.carousel{
+    width: 100vw;
+    margin: auto;
+}
+.carousel-control-prev{
+    width: 5vw;
+}
+.carousel-control-prev:hover{
+    background-color: #3c3e38;
+}
+.carousel-control-next{
+    width: 5vw;
+}
+.carousel-control-next:hover{
+    background-color: #3c3e38;
+}
+.carousel-indicators button{
+    background-color: #568200;
+    color: #568200;
+}
