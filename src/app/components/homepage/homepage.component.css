@@ -77,6 +77,70 @@
   box-shadow: "0px 4px 4px 0px #00000040,inset 0 0 0 1000px rgba(0,0,0,.5)"
 }
 
+
+
+.similarProducts {
+  padding: 50px;
+}
+
+.similarProducts .row {
+  justify-content: space-around;
+}
+
+.similarProducts .heading {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.similarProducts .col-md-4 {
+  padding: 0;
+}
+
+.similarProducts .container, .card {
+  margin: 0;
+}
+
+.similarProducts .product-card-image {
+  width: 80%;
+  height: 40%;
+   object-fit: cover;
+}
+
+.category-container .heading {
+  text-align: left;
+}
+
+
+.category-container {
+  padding: 50px;
+}
+
+.category-container .category-card-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.category-container .row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.category-container .card {
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.category-container .catName {
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+
+
 @media only screen and (max-width: 920px) {
 
   

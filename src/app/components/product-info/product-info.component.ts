@@ -61,7 +61,7 @@ export class ProductInfoComponent implements OnInit {
   ngOnInit() {
     this.productService.getAllProducts('toys').subscribe(
       (products) => {
-        this.product = products[10]
+        this.product = products[5]
         console.log(this.product)
       }
     )
