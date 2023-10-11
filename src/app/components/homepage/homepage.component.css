@@ -31,6 +31,7 @@
 
 .category-container {
   margin-top: 20px;
+  align-items:center;
 }
 
 .card {
@@ -43,3 +44,13 @@
   border: 5px solid black;
 }
 
+.parallax {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/000/178/440/original/vector-modern-abstract-offer-discount-advertising-banner-design-templat.jpg");
+
+  min-height: 600px; 
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
