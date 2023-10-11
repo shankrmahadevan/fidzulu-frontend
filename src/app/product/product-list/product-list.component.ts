@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/models/product';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -7,7 +8,8 @@ import { Product } from 'src/app/models/product';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  products:Product[] = 
+
+  @Input() products:Product[] = 
 
   [
   
@@ -276,4 +278,35 @@ export class ProductListComponent {
     }
   
   ];
+  @Input() filters: any= {
+    brands: [],
+      price: { min: 0, max: 1000 },
+      rating: 4.2,
+      sortBy: 'latest'
+
+  };
+  filteredProducts!: Product[];
+
+  constructor(private productService: ProductService){}
+
+  ngOnInit(){
+    this.filteredProducts = this.products;
+    //this.applyFilters(); (For test if it works)
+  }
+
+
+  applyFilters() {
+    this.filteredProducts = this.productService.filterProducts(this.products, this.filters);
+  }
+
+  clearFilters() {
+    this.filters = {
+      brands: [],
+      price: { min: 0, max: Infinity },
+      rating: null,
+      sortBy: 'latest'
+    };
+    this.filteredProducts = this.products;
+  }
+
 }
