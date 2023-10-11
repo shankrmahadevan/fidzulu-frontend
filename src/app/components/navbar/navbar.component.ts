@@ -60,7 +60,6 @@ export class NavbarComponent {
   searchKeyword(): Product[] {
     let keywords = this.searchInput.nativeElement.value.toLowerCase().split(" ");
     let filteredProducts: Product[] = []
-    let products = this.productService.getAllProducts(this.category);
     for (let product of this.currentProducts) {
       for (let keyword of keywords) {
         if (product.metadata.toLowerCase().includes(keyword) || product.product_description.toLowerCase().includes(keyword)) {
@@ -90,7 +89,7 @@ export class NavbarComponent {
 		);
 	}
 
-  
+
 
 
 }

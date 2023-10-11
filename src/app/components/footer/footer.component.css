@@ -1,11 +1,21 @@
 .footer-container{
     background-color: #1a1a1a;
-  /*bottom: 0;*/
     width: 100%;
     display: flex;
     justify-content: space-between;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
-
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Fidelity Sans";
+  margin: 0px 20px;
+  text-decoration: none;
+  color: var(--fidelity-green);
+}
 .right-container {
     display: flex;
     flex-direction: row;
@@ -16,11 +26,13 @@
     color: #999;
     object-fit: contain;
     margin-left: 1em;
+  color: var(--fidelity-green);
 }
 /* .right-container{
     display: inline;
     height: 100%;
 } */
+
 
 .copyright-text{
     color: #999;
@@ -36,7 +48,7 @@ a{
 }
 
 a:hover {
-    text-decoration: underline;
+    color:var(--fidelity-green);
 }
 
 #about {
@@ -48,5 +60,5 @@ a:hover {
     .mobile-hidden {
         display: none;
     }
-    
+
 }

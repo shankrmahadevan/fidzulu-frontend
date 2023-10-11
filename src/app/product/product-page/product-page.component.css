@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+}
+
+.component1,
+.component2 {
+  flex: 1; /* Equal width for both components */
+}

@@ -1,62 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("assets/fonts.css");
+:root {
+  --fidelity-green:#568200;
+}
 
-  
-  .modal-content {
-    height: 100vh;
-    border-radius: 0;
-  }
+.modal-content {
+  height: 100vh;
+  border-radius: 0;
+}
 
 .modal-dialog {
-    margin: 0;
+  margin: 0;
 }
 
-.carousel{
-    width: 100vw;
-    margin: auto;
+.carousel {
+  width: 100vw;
+  margin: auto;
 }
-.carousel-control-prev{
-    width: 5vw;
+
+.carousel-control-prev {
+  width: 5vw;
 }
-.carousel-control-prev:hover{
-    background-color: rgba(65, 68, 61, 0.479);
+
+.carousel-control-prev:hover {
+  background-color: rgba(65, 68, 61, 0.479);
 }
-.carousel-control-next{
-    width: 5vw;
+
+.carousel-control-next {
+  width: 5vw;
 }
-.carousel-control-next:hover{
-    background-color: rgba(65, 68, 61, 0.479);
+
+.carousel-control-next:hover {
+  background-color: rgba(65, 68, 61, 0.479);
 }
-.carousel-indicators button{
-    background-color: #568200;
-    color: #568200;
+
+.carousel-indicators button {
+  background-color: #568200;
+  color: #568200;
 }
 
 @media only screen and (max-width: 920px) {
 
-    
-    
+
 }
 
 @media only screen and (max-width: 600px) {
-    .carousel-control-prev{
-        width: 10vw;
-    }
-    .carousel-control-next{
-        width: 10vw;
-    }
-   
-    
+  .carousel-control-prev {
+    width: 10vw;
   }
+
+  .carousel-control-next {
+    width: 10vw;
+  }
+
+
+}
 
 /* To remove scrollbar */
 
 body::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-  body {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

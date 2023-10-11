@@ -1,0 +1,51 @@
+/* styles.css */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+.product-card {
+  margin-top: 20px;
+}
+
+.custom-image {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.product-rating {
+  color: #f1c40f; /* Yellow color for stars */
+}
+
+.product-price {
+  font-weight: bold;
+}
+
+.green-text {
+  color: green;
+}
+
+.red-text {
+  color: red;
+  font-size: 50%; /* Half the size */
+}
+
+.italic-text {
+  font-style: italic;
+  font-size: 75%; /* Smaller size */
+}
+
+.starCustom {
+  color: green;
+}
+.fa-star,
+.fa-star-half {
+  color: #568200;
+}
