@@ -1,7 +1,6 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
-import {faMagnifyingGlass, faBars} from '@fortawesome/free-solid-svg-icons';
-import {ProductService} from "../../services/product.service";
-import {Product} from "../../models/product";
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { faMagnifyingGlass, faBars, faChevronRight, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +14,9 @@ export class NavbarComponent {
 
   icons = {
     faMagnifyingGlass: faMagnifyingGlass,
-    faBars: faBars
+    faBars: faBars,
+    arrow: faChevronRight,
+    location: faLocationDot
   }
 
   onFocus = false
@@ -57,6 +58,7 @@ export class NavbarComponent {
     this.onFocus = state;
   }
 
+<<<<<<< HEAD
   searchKeyword(): Product[] {
     let keywords = this.searchInput.nativeElement.value.toLowerCase().split(" ");
     let filteredProducts: Product[] = []
@@ -77,5 +79,19 @@ export class NavbarComponent {
   getCategory(){
     return this.category.toLowerCase()
   }
+=======
+  closeResult = '';
+
+	constructor(private modalService: NgbModal) {}
+
+	open(content: any) {
+		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+			(result) => {
+				this.closeResult = `Closed with: ${result}`;
+			}
+		);
+	}
+
+>>>>>>> 0e5b2160e5749ebd1c5175e9e5dadf08389bebab
 
 }

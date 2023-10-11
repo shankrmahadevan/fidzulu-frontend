@@ -1,12 +1,14 @@
 <div class="navbar" >
-    <div>
+    <div class="left-container">
+    <div (click)="open(content)">
         <fa-icon [icon]="icons.faBars"></fa-icon>
     </div>
   <a class="title" routerLink="/">FidZulu</a>
     <div ngbDropdown class="d-inline-block">
         <button type="button" class="btn nav-dropdown" id="dropdownBasic1" ngbDropdownToggle>
             Location
-          {{country}}
+        
+          <p><fa-icon [icon]="icons.location"></fa-icon> {{country}}</p>
         </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <button (click)="changeCountry('India')" ngbDropdownItem >India</button>
@@ -14,18 +16,20 @@
             <button (click)="changeCountry('SC')" ngbDropdownItem>SC</button>
         </div>
     </div>
+    </div>
+    
     <div class="search-container" [ngClass]="onFocus ? 'search-focus': ''" >
         <div ngbDropdown class="d-inline-block">
           <button type="button" class="category-dropdown" id="dropdownBasic2" ngbDropdownToggle>
                 {{category}}
             </button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button (click)="changeCategory('Bikes')" ngbDropdownItem>Bikes</button>
-              <button (click)="changeCategory('Food')" ngbDropdownItem>Food</button>
-              <button (click)="changeCategory( 'Toys')" ngbDropdownItem>Toys</button>
-              <button (click)="changeCategory('Books')" ngbDropdownItem>Books</button>
-              <button (click)="changeCategory('DVDs')" ngbDropdownItem>DVDs</button>
-              <button (click)="changeCategory('Laptops')" ngbDropdownItem>Laptops</button>
+                <button (click)="changeCategory('Bikes')" ngbDropdownItem >Bikes</button>
+                <button (click)="changeCategory('Food')" ngbDropdownItem>Food</button>
+                <button (click)="changeCategory( 'Toys')" ngbDropdownItem>Toys</button>
+                <button (click)="changeCategory('Books')" ngbDropdownItem>Books</button>
+                <button (click)="changeCategory('DVDs')" ngbDropdownItem>DVDs</button>
+                <button (click)="changeCategory('Laptops')" ngbDropdownItem>Laptops</button>
             </div>
         </div>
         <input #searchInput class="search-input" placeholder="Search Fidzulu" (focus)="changeFocus(true)" (blur)="changeFocus(false)" />
@@ -42,3 +46,58 @@
         </button>
     </div>
 </div>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Find by Categories</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<div class="sidebar-options">
+            <p>Bikes</p>
+            <fa-icon [icon]="icons.arrow"></fa-icon>
+        </div>
+        <hr>
+        <div class="sidebar-options">
+            <p>Food</p>
+            <fa-icon [icon]="icons.arrow"></fa-icon>
+        </div>
+        <hr>
+        <div class="sidebar-options">
+            <p>Toys</p>
+            <fa-icon [icon]="icons.arrow"></fa-icon>
+        </div>
+        <hr>
+        <div class="sidebar-options">
+            <p>Books</p>
+            <fa-icon [icon]="icons.arrow"></fa-icon>
+        </div>
+        <hr>
+        <div class="sidebar-options">
+            <p>DVDs</p>
+            <fa-icon [icon]="icons.arrow"></fa-icon>
+        </div>
+        <hr>
+        <div class="sidebar-options">
+            <p>Laptops</p>
+            <fa-icon [icon]="icons.arrow"></fa-icon>
+        </div>
+        <hr>
+
+        <div class="sidebar-options mobile-sidebar">
+            <p>Login</p>
+            <fa-icon [icon]="icons.arrow"></fa-icon>
+            <hr>
+        </div>
+        
+        <div class="sidebar-options mobile-sidebar">
+            <p>Cart</p>
+            <fa-icon [icon]="icons.arrow"></fa-icon>
+            <hr>
+        </div>
+        
+        
+	</div>
+
+</ng-template>
+
