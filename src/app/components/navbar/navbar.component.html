@@ -31,7 +31,8 @@
                 <button (click)="changeCategory('Laptops')" ngbDropdownItem>Laptops</button>
             </div>
         </div>
-        <input #searchInput class="search-input" placeholder="Search Fidzulu" (focus)="changeFocus(true)" (blur)="changeFocus(false)" />
+      <input #searchInput class="search-input" placeholder="Search Fidzulu" (focus)="changeFocus(true)"
+             (blur)="changeFocus(false)" (keyup.enter)="searchKeyword()"/>
       <button class="search-btn" (click)="searchKeyword()">
         <fa-icon [icon]="icons.faMagnifyingGlass"></fa-icon>
       </button>

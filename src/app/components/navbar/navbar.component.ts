@@ -2,7 +2,8 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 import {faMagnifyingGlass, faBars, faChevronRight, faLocationDot} from '@fortawesome/free-solid-svg-icons';
 import {ProductService} from "../../services/product.service";
 import {Product} from "../../models/product";
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -25,28 +26,17 @@ export class NavbarComponent {
 
   country = "India"
 
-  category = "Books"
+  category = sessionStorage['category'] || "Bikes"
 
-  currentProducts: Product[] = []
+  constructor(private router: Router, private modalService: NgbModal, private productService: ProductService) {
+  }
 
   ngOnInit() {
-    this.productService.getAllProducts(this.category).subscribe(
-      (products) => {
-        this.currentProducts = products
-      }
-    )
   }
 
   changeCategory(category: string) {
     this.category = category
-    this.productService.getAllProducts(this.getCategory()).subscribe(
-      (products) => {
-        this.currentProducts = products
-        if(this.productService.cache[this.getCategory()].length == 0){
-          this.productService.cache[this.getCategory()] = products;
-        }
-      }
-    )
+    sessionStorage['category'] = category
   }
 
   changeCountry(country: string) {
@@ -57,39 +47,29 @@ export class NavbarComponent {
     this.onFocus = state;
   }
 
-  searchKeyword(): Product[] {
-    let keywords = this.searchInput.nativeElement.value.toLowerCase().split(" ");
-    let filteredProducts: Product[] = []
-    for (let product of this.currentProducts) {
-      for (let keyword of keywords) {
-        if (product.metadata.toLowerCase().includes(keyword) || product.product_description.toLowerCase().includes(keyword)) {
-          console.log(product.metadata)
-          if (!filteredProducts.includes(product)) {
-            filteredProducts.push(product)
-          }
-        }
+  searchKeyword() {
+    this.router.navigate(["products" , this.category , "search"], {
+      queryParams: {
+        'q': this.searchInput.nativeElement.value
       }
-    }
-    return filteredProducts;
+    })
   }
 
-  getCategory(){
+  getCategory() {
     return this.category.toLowerCase()
   }
 
   closeResult = '';
 
-	constructor(private modalService: NgbModal, private productService: ProductService) {}
 
-	open(content: any) {
-		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
-			(result) => {
-				this.closeResult = `Closed with: ${result}`;
-			}
-		);
-	}
-
+  open(content: any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }
+    );
+  }
 
 
-
+  protected readonly onkeyup = onkeyup;
 }

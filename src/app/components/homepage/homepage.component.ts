@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'app-homepage',
@@ -30,7 +31,7 @@ export class HomepageComponent {
       },
     ];
 
-  
+
 
     categories = [
       {name:'Bikes',image:'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmlrZXN8ZW58MHx8MHx8fDA%3D&w=1000&q=80'},
@@ -40,4 +41,16 @@ export class HomepageComponent {
       // {name:'Toys',image:''},
       // {name:'Laptops',image:''},
     ]
+
+  constructor(private productService:ProductService) {
+      this.populateCache()
+  }
+
+  populateCache(){
+      for(let category of ['bikes', 'food', 'toys', 'books', 'dvds', 'laptops']){
+        this.productService.getAllProducts(category).subscribe((data) => {
+        this.productService.cache[category] = data
+        })
+      }
+  }
 }

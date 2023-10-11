@@ -2,13 +2,15 @@ import { ChangeDetectorRef, Component, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductListService } from '../product-list.service';
+import {ActivatedRoute} from "@angular/router";
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-product-filters',
   templateUrl: './product-filters.component.html',
   styleUrls: ['./product-filters.component.css'],
 })
-export class ProductFiltersComponent {
+export class ProductFiltersComponent{
   @Output('filter') applyFiltersEvent = new EventEmitter<any>();
   @Output() priceRangeChanged = new EventEmitter<number[]>();
   @Output() sortBy!: string;
@@ -16,21 +18,24 @@ export class ProductFiltersComponent {
   brands: string[] = [];
   constructor(
     private productService: ProductService,
-    public productListService: ProductListService
+    public productListService: ProductListService,
+    private route:ActivatedRoute
   ) {
-    productService.getAllProducts('toys').subscribe((products) => {
-      for (let product of products) {
-        console.log();
-        if (!this.brands.includes(product.brand.toLowerCase())) {
+  }
+
+  ngOnInit(){
+    this.productListService.products.subscribe((data) => {
+      this.brands = []
+      for (let product of data) {
+        if (!this.brands.map(x => x.toLowerCase()).includes(product.brand.toLowerCase())) {
           this.brands.push(product.brand);
         }
       }
-    });
+    })
   }
   updatePriceRange(event: any) {
     this.currentPrice = event.target.value;
     this.filters.price.max = this.currentPrice;
-    console.log(this.filters);
   }
 
   filters = {
@@ -45,12 +50,10 @@ export class ProductFiltersComponent {
   }
   setRatingFilter(rating: number) {
     this.filters.rating = rating;
-    console.log('Rating change', this.filters);
   }
 
   applyFilters() {
     this.applyFiltersEvent.emit(this.filters);
-    console.log('emission took place !', this.filters);
   }
 
   updateBrandFilter(brand: string): void {

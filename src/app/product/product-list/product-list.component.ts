@@ -3,6 +3,7 @@ import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductListService } from '../product-list.service';
 import { SessionService } from 'src/app/services/session.service';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
@@ -10,6 +11,7 @@ import { SessionService } from 'src/app/services/session.service';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent {
+  category = ''
   @Input() products: Product[] = [];
   @Input() filters: any = {
     brands: [],
@@ -26,28 +28,39 @@ export class ProductListComponent {
   constructor(
     private productService: ProductService,
     private productListService: ProductListService,
-    private sessionService:SessionService
+    private route:ActivatedRoute
   ) {
-    sessionService.category = 'toys'
-    productService.getAllProducts('toys').subscribe((data) => {
-      console.log(data);
+  }
+
+  ngOnInit() {
+    this.category = this.route.snapshot.paramMap.get("category") || "";
+    let keyWords = this.route.snapshot.queryParamMap.get("q");
+    this.productService.getAllProducts(this.category).subscribe((data) => {
       this.products = data;
+      this.productListService.products.next(data)
       this.filteredProducts = data;
       this.productListService.setPriceInterval(this.products);
       this.setPage(1);
     });
+
+    if(keyWords){
+      let keywords = keyWords.toLowerCase().split(" ");
+      let filteredProducts: Product[] = []
+      for (let product of this.products) {
+        for (let keyword of keywords) {
+          if (product.product_name.toLowerCase().includes(keyword) || product.metadata.toLowerCase().includes(keyword) || product.product_description.toLowerCase().includes(keyword)) {
+            if (!filteredProducts.includes(product)) {
+              filteredProducts.push(product)
+            }
+          }
+        }
+      }
+      this.products = filteredProducts;
+      this.productListService.products.next(filteredProducts)
+      this.filteredProducts = filteredProducts;
+      this.setPage(1);
+    }
   }
-
-  ngOnInit() {
-    this.filteredProducts = this.products;
-    this.setPage(1);
-    //this.applyFilters(); (For test if it works)
-  }
-
-  // ngOnChanges() {
-  //   this.applyFilters();
-  // }
-
   applyFilters(filter: any) {
     this.filteredProducts = this.productService.filterProducts(
       this.products,
@@ -56,15 +69,6 @@ export class ProductListComponent {
     this.setPage(1);
   }
 
-  // clearFilters() {
-  //   this.filters = {
-  //     brands: [],
-  //     price: { min: 0, max: Infinity },
-  //     rating: null,
-  //     sortBy: 'latest',
-  //   };
-  //   this.filteredProducts = this.products;
-  // }
   setPage(page: number) {
     this.currentPage = page;
     const start = (page - 1) * this.pageSize;

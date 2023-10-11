@@ -8,8 +8,9 @@ import { ProductPageComponent } from './product/product-page/product-page.compon
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, pathMatch: 'full' },
-  { path: 'products', component: ProductPageComponent },
-  { path: 'product/:id', component: ProductInfoComponent },
+  { path: 'products/:category', component: ProductPageComponent },
+  { path: 'products/:category/search', component: ProductPageComponent },
+  { path: 'product/:category/:id', component: ProductInfoComponent },
   { path: 'Cart', component: ShoppingCartComponent },
   { path: 'About', component: TeamsComponent }
 ];

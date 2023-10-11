@@ -1,29 +1,20 @@
-import { Injectable } from '@angular/core';
-import { Product } from '../models/product';
-import { Observable, catchError, map, of, throwError } from 'rxjs';
-import { SessionService } from './session.service';
-import { HttpClient } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Product} from '../models/product';
+import {Observable, catchError, map, of, throwError} from 'rxjs';
+import {SessionService} from './session.service';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
   urls: { [key: string]: string } = {
-    bikes:
-      'http://localhost:8080/classA/bike/all/' +
-      this.sessionService.getLocation(),
-    food:
-      'http://localhost:8080/classA/food/all/' +
-      this.sessionService.getLocation(),
+    bikes: 'http://localhost:3000/bikes/all/' + this.sessionService.getLocation(),
     toys: 'http://localhost:3033/toys/all/' + this.sessionService.getLocation(),
-    books:
-      'http://localhost:3034/books/all/' + this.sessionService.getLocation(),
-    dvds:
-      'http://localhost:8080/classB/dvd/all/' +
-      this.sessionService.getLocation(),
-    laptops:
-      'http://localhost:8080/classB/laptop/all/' +
-      this.sessionService.getLocation(),
+    books: 'http://localhost:3034/books/all/' + this.sessionService.getLocation(),
+    dvds: 'http://localhost:8080/classB/dvd/all/' + this.sessionService.getLocation(),
+    food: 'http://localhost:8080/classA/food/all/' + this.sessionService.getLocation(),
+    laptops: 'http://localhost:8080/classB/laptop/all/' + this.sessionService.getLocation(),
   };
 
   cache: { [key: string]: Product[] } = {
@@ -41,17 +32,17 @@ export class ProductService {
   getAllProducts(productType: string): Observable<Product[]> {
     productType = productType.toLowerCase();
     let url = this.urls[productType]
-    if(this.cache[productType].length == 0){
+    if (this.cache[productType].length == 0) {
       return this.httpClient.get<Product[]>(url);
-    } else{
+    } else {
       return of(this.cache[productType])
     }
   }
 
   getImage(imageUrl: string): Observable<string> {
-    return this.httpClient.get(imageUrl, { responseType: 'blob' }).pipe(
+    return this.httpClient.get(imageUrl, {responseType: 'blob'}).pipe(
       map((data: Blob) => {
-        const blob = new Blob([data], { type: 'image/jpeg' }); // Change the type if necessary
+        const blob = new Blob([data], {type: 'image/jpeg'}); // Change the type if necessary
         return window.URL.createObjectURL(blob);
       }),
       catchError((error) => {
