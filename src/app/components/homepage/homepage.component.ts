@@ -7,8 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HomepageComponent {
   images=[
-    {name:'ny.jpg',caption:'New York'},
-    {name:'cal.jpg',caption:'California'}
+    {name:'laptop.jpg',caption:'Laptops'},
+    {name:'book.jpg',caption:'Books'},
+    {name:'bike.jpg',caption:'Bikes'},
+    {name:'food.jpg',caption:'Food'},
+    {name:'dvd.jpg',caption:'DVD'},
+    {name:'toy.jpg',caption:'Toys'},
   ];
 
   trendingProducts = [

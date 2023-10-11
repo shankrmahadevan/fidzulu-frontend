@@ -1,11 +1,9 @@
 .navbar {
   padding: 0px 15px;
   background-color: #568200;
-  /*background-color: black;*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 10px;
 }
 
 .title {
@@ -14,7 +12,6 @@
   font-family: "Fidelity Sans";
   margin: 0px 20px;
   text-decoration: none;
-  /*color:#568200;*/
   color: black;
 }
 
@@ -126,6 +123,15 @@
         display: flex;
         font-weight: bold;
     }
+
+    .navbar {
+      padding-bottom: 10px;
+  }
+
+  .left-container {
+    width: 100%;
+    justify-content: space-between;
+}
     
 }
 
@@ -147,14 +153,9 @@
         width: 55%;
     }
 
-    .left-container {
-        width: 100%;
-        justify-content: space-between;
-    }
+    
 
-    .navbar {
-        padding-bottom: 10px;
-    }
+    
 
     .nav-dropdown {
         text-align: right;

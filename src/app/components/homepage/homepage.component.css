@@ -1,6 +1,6 @@
 .carousel-wrapper{
     width: 100vw;
-    height: 70vh;
+    height: max-content;
     overflow: hidden;
     margin: auto;
     position: relative;
@@ -8,15 +8,17 @@
 }
 .caption{
     position: absolute;
-    left: 100px;
-    bottom: 50px;
+    left: 6vw;
+    font-family: "Fidelity Sans";
+    font-style: italic;
+    bottom: 10vh;
     font-size: 40px;
     font-weight: bold;
     color: aliceblue;
 }
 .carousel-wrapper img{
-    width: 100% ;
-    height: fit-content;
+    width: 100vw;
+    height: 90vh;
     object-fit: cover;
     overflow: hidden;
 }
@@ -43,3 +45,25 @@
   border: 5px solid black;
 }
 
+@media only screen and (max-width: 920px) {
+
+  
+  
+}
+
+
+@media only screen and (max-width: 600px) {
+  
+  .carousel-wrapper img{
+    height: 40vh;
+}
+.caption{
+  left: 12vw;
+}
+
+.caption{
+  font-size: 20px;
+
+}
+  
+}
