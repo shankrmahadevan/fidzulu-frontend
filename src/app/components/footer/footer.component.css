@@ -4,6 +4,11 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
 .right-container {
@@ -21,6 +26,7 @@
     display: inline;
     height: 100%;
 } */
+  
 
 .copyright-text{
     color: #999;

@@ -12,6 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import {HttpClientModule} from "@angular/common/http";
 import { CategoryCardComponent } from './components/category-card/category-card.component';
+import { TeamsComponent } from './components/teams/teams.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CategoryCardComponent } from './components/category-card/category-card.
     HomepageComponent,
     NavbarComponent,
     ShoppingCartComponent,
-    CategoryCardComponent
+    CategoryCardComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,
