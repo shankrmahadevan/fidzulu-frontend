@@ -24,6 +24,9 @@ export class SessionService {
   }
 
   public removeFromCart(product: Product) {
-    // this.itemsInCart.remove(product);
+    const index = this.itemsInCart.indexOf(product, 0);
+    if (index > -1) {
+      this.itemsInCart.splice(index, 1);
+    }
   }
 }
