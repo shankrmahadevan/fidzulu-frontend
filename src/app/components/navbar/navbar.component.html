@@ -1,23 +1,22 @@
 <div class="navbar" >
     <div class="left-container">
     <div (click)="open(content)">
-        <fa-icon [icon]="icons.faBars"></fa-icon>
+        <fa-icon [icon]="icons.faBars" id="hamburger"></fa-icon>
     </div>
   <a class="title" routerLink="/">FidZulu</a>
     <div ngbDropdown class="d-inline-block">
         <button type="button" class="btn nav-dropdown" id="dropdownBasic1" ngbDropdownToggle>
             Location
-        
           <p><fa-icon [icon]="icons.location"></fa-icon> {{country}}</p>
         </button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="location-dropdown">
             <button (click)="changeCountry('India')" ngbDropdownItem >India</button>
             <button (click)="changeCountry('US')" ngbDropdownItem>US</button>
             <button (click)="changeCountry('SC')" ngbDropdownItem>SC</button>
         </div>
     </div>
     </div>
-    
+
     <div class="search-container" [ngClass]="onFocus ? 'search-focus': ''" >
         <div ngbDropdown class="d-inline-block">
           <button type="button" class="category-dropdown" id="dropdownBasic2" ngbDropdownToggle>
@@ -38,9 +37,6 @@
       </button>
     </div>
     <div class="nav-btns">
-        <button class="nav-btn">
-            Login
-        </button>
         <button class="nav-btn" routerLink="/Cart">
             Cart
         </button>
@@ -93,8 +89,8 @@
             <p>Cart</p>
             <fa-icon [icon]="icons.arrow"></fa-icon>
         </div>
-        
-        
+
+
 	</div>
 
 </ng-template>

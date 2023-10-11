@@ -1,26 +1,28 @@
-.carousel-wrapper{
-    width: 100vw;
-    height: max-content;
-    overflow: hidden;
-    margin: auto;
-    position: relative;
-    text-align: center;
+.carousel-wrapper {
+  width: 100vw;
+  height: max-content;
+  overflow: hidden;
+  margin: auto;
+  position: relative;
+  text-align: center;
 }
-.caption{
-    position: absolute;
-    left: 6vw;
-    font-family: "Fidelity Sans";
-    font-style: italic;
-    bottom: 10vh;
-    font-size: 40px;
-    font-weight: bold;
-    color: aliceblue;
+
+.caption {
+  position: absolute;
+  left: 6vw;
+  font-family: "Fidelity Sans";
+  font-style: italic;
+  bottom: 10vh;
+  font-size: 40px;
+  font-weight: bold;
+  color: aliceblue;
 }
-.carousel-wrapper img{
-    width: 100vw;
-    height: 90vh;
-    object-fit: cover;
-    overflow: hidden;
+
+.carousel-wrapper img {
+  width: 100vw;
+  height: 90vh;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 .heading {
@@ -52,11 +54,9 @@
 .parallax {
   background-image: url("https://static.vecteezy.com/system/resources/previews/000/178/440/original/vector-modern-abstract-offer-discount-advertising-banner-design-templat.jpg");
 
- 
 
   min-height: 600px;
 
- 
 
   background-attachment: fixed;
   background-position: center;
@@ -64,15 +64,15 @@
   background-size: cover;
 }
 
- 
 
-.catName{
-    position: absolute;
-    Bottom: 8px;
-    left: 16px;
-    font-weight: bold;
-    color:white;
+.catName {
+  position: absolute;
+  Bottom: 8px;
+  left: 16px;
+  font-weight: bold;
+  color: white;
 }
+
 .overlay {
   box-shadow: "0px 4px 4px 0px #00000040,inset 0 0 0 1000px rgba(0,0,0,.5)"
 }
@@ -143,23 +143,23 @@
 
 @media only screen and (max-width: 920px) {
 
-  
-  
+
 }
 
 
 @media only screen and (max-width: 600px) {
-  
-  .carousel-wrapper img{
+
+  .carousel-wrapper img {
     height: 40vh;
-}
-.caption{
-  left: 12vw;
-}
+  }
 
-.caption{
-  font-size: 20px;
+  .caption {
+    left: 12vw;
+  }
 
-}
-  
+  .caption {
+    font-size: 20px;
+
+  }
+
 }

@@ -13,8 +13,6 @@
   gap: 50px;
 }
 
-
-
 .product-img-thumbnail {
   width: fit-content;
   padding: 0;
@@ -42,7 +40,7 @@
 .fa-star, .fa-star-half {
   font-size: 20px;
   margin-left: 5px;
-  color: #568200;
+  color: var(--fidelity-green);
 }
 
 #review-stars-text {
@@ -85,7 +83,7 @@ h4{
 
 
 .rating {
-  color: #568200;
+  color: var(--fidelity-green);
 }
 
 .card {
@@ -130,7 +128,7 @@ h4{
   .product-name {
     text-align: center;
   }
-  
+
   .price {
     text-align: center;
   }
@@ -167,9 +165,9 @@ h4{
       width: 55%;
   }
 
-  
 
-  
+
+
 
   .nav-dropdown {
       text-align: right;
@@ -178,6 +176,6 @@ h4{
   .title {
       margin-left: 60px;
   }
-  
-  
+
+
 }

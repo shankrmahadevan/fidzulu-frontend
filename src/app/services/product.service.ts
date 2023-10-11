@@ -5,7 +5,7 @@ import { SessionService } from './session.service';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ProductService {
   urls: { [key: string]: string } = {
@@ -27,27 +27,24 @@ export class ProductService {
   };
 
   cache: { [key: string]: Product[] } = {
-    bikes: [],
-    food: [],
-    toys: [],
-    books: [],
-    dvds: [],
-    laptops: [],
-  };
-  category: any;
+    'bikes': [],
+    'food': [],
+    'toys': [],
+    'books': [],
+    'dvds': [],
+    'laptops': []
+  }
 
-  constructor(
-    private sessionService: SessionService,
-    private httpClient: HttpClient
-  ) {}
+  constructor(private sessionService: SessionService, private httpClient: HttpClient) {
+  }
 
   getAllProducts(productType: string): Observable<Product[]> {
     productType = productType.toLowerCase();
-    let url = this.urls[productType];
-    if (this.cache[productType].length == 0) {
+    let url = this.urls[productType]
+    if(this.cache[productType].length == 0){
       return this.httpClient.get<Product[]>(url);
-    } else {
-      return of(this.cache[productType]);
+    } else{
+      return of(this.cache[productType])
     }
   }
 
