@@ -3,6 +3,16 @@
     height: 40vh;
     overflow: hidden;
     margin: auto;
+    position: relative;
+    text-align: center;
+}
+.caption{
+    position: absolute;
+    left: 100px;
+    bottom: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    color: aliceblue;
 }
 .carousel-wrapper img{
     width: 100% ;
