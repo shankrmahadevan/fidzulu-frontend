@@ -10,6 +10,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { TeamsComponent } from './components/teams/teams.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     FooterComponent,
     HomepageComponent,
     NavbarComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,
