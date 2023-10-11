@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
-import { Observable, catchError, map, of, throwError } from 'rxjs';
+import { Observable, catchError, filter, map, of, throwError } from 'rxjs';
 import { SessionService } from './session.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -115,21 +115,25 @@ export class ProductService {
     }
 
     // return this.sortProducts(filteredProducts, filters.sortBy);
-    return filteredProducts;
+    console.log(this.sortProducts(filteredProducts, filters.sortBy));
+    return this.sortProducts(filteredProducts, filters.sortBy);
   }
 
-  sortProducts(products: Product[], sortOrder: string): Product[] {
-    if (sortOrder === 'latest') {
-      return products.sort(
-        (a, b) => b.timestamp.getTime() - a.timestamp.getTime()
-      );
-    } else if (sortOrder === 'oldest') {
-      return products.sort(
-        (a, b) => a.timestamp.getTime() - b.timestamp.getTime()
-      );
-    }
-    console.log();
-
-    return products;
+  sortProducts(products: Product[], sortOrder: 'latest' | 'oldest'): Product[] {
+    const sortedProducts = [...products]; // Create a copy to avoid modifying the original array
+  
+    sortedProducts.sort((a, b) => {
+      const timestampA = Date.parse(`20${a.timestamp}`);
+      const timestampB = Date.parse(`20${b.timestamp}`);
+  
+      if (sortOrder === 'latest') {
+        return timestampB - timestampA; // Sort in descending order for latest
+      } else if (sortOrder === 'oldest') {
+        return timestampA - timestampB; // Sort in ascending order for oldest
+      } else {
+        return 0; // No sorting for other values of sortOrder
+      }
+    });
+    return sortedProducts;
   }
 }

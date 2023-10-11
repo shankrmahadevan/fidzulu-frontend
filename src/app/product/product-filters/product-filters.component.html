@@ -33,8 +33,7 @@
               </button>
             </div>
           </div>
-          <!-- Filter by Price Range -->
-          <!-- Filter by Price Range -->
+
           <!-- Filter by Price Range -->
           <div class="mb-4">
             <h5>Filter by Price Range</h5>
@@ -80,6 +79,14 @@
             </div>
           </div>
 
+          <!-- Sort By Timestamp option-->
+          <div>
+            <h5 style="margin: 5%">Sort By</h5>
+            <div class="button-container">
+              <button class="btn-link" (click)="setSortingFilter('oldest')">Oldest to Latest</button>
+              <button class="btn-link" (click)="setSortingFilter('latest')">Latest to Oldest</button>
+            </div>
+          </div>
           <!-- Apply and Clear Filters Buttons -->
           <div class="text-center mt-3">
             <button class="btn btn-primary" (click)="applyFilters()">

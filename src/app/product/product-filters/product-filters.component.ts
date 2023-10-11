@@ -61,4 +61,9 @@ export class ProductFiltersComponent {
     // Use the splice() method to remove the element
     return array.splice(index, 1);
   }
+
+  setSortingFilter(sortingOrder: string): void {
+    console.log("Sorting order set to", sortingOrder);
+    this.filters.sortBy = sortingOrder;
+  }
 }

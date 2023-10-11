@@ -14,3 +14,16 @@
 .card {
   border: none; /* This removes the border */
 }
+
+.btn-link {
+  border: none;
+  text-decoration: none;
+  width: fit-content;
+  background: none;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  background-color: none;
+}
