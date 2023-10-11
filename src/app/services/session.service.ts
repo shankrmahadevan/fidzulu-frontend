@@ -5,17 +5,17 @@ import {Product} from "../models/product";
   providedIn: 'root'
 })
 export class SessionService {
-  private location: 'US-NC' | 'IRE' | 'IND' = 'US-NC';
+  private location: 'US-NC' | 'IE' | 'IN' = 'US-NC';
   public itemsInCart: Product[] = []
 
   constructor() {
   }
 
   public getLocation() {
-    return location
+    return this.location
   }
 
-  public setLocation(value: 'US-NC' | 'IRE' | 'IND') {
+  public setLocation(value: 'US-NC' | 'IE' | 'IN') {
     this.location = value;
   }
 
