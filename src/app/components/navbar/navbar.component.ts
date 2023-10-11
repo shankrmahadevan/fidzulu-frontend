@@ -29,9 +29,6 @@ export class NavbarComponent {
 
   currentProducts: Product[] = []
 
-  constructor(private productService: ProductService) {
-  }
-
   ngOnInit() {
     this.productService.getAllProducts(this.category).subscribe(
       (products) => {
@@ -83,7 +80,7 @@ export class NavbarComponent {
 
   closeResult = '';
 
-	constructor(private modalService: NgbModal) {}
+	constructor(private modalService: NgbModal, private productService: ProductService) {}
 
 	open(content: any) {
 		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
@@ -92,6 +89,8 @@ export class NavbarComponent {
 			}
 		);
 	}
+
+  
 
 
 }
