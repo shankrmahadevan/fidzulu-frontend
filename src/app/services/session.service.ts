@@ -5,7 +5,7 @@ import { Product } from '../models/product';
   providedIn: 'root',
 })
 export class SessionService {
-  private location: 'US-NC' | 'IRE' | 'IND' = 'US-NC';
+  private location: 'US-NC' | 'IE' | 'IN' = 'US-NC';
   private cartKey = 'shoppingCart'; 
   public itemsInCart: Product[] = [];
 

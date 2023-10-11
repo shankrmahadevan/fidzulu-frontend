@@ -1,10 +1,8 @@
 .footer-container{
     background-color: #1a1a1a;
-  /*bottom: 0;*/
     width: 100%;
     display: flex;
     justify-content: space-between;
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
