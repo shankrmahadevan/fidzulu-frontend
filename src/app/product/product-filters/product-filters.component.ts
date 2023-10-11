@@ -43,6 +43,7 @@ export class ProductFiltersComponent {
   }
   setRatingFilter(rating: number) {
     this.filters.rating = rating;
+    console.log('Rating change', this.filters);
   }
 
   applyFilters() {
