@@ -287,10 +287,16 @@ export class ProductListComponent {
   };
   filteredProducts!: Product[];
 
+  pagedProducts: any[] = [];
+  pageSize: number = 5;
+  currentPage: number = 1;
+
+
   constructor(private productService: ProductService){}
 
   ngOnInit(){
     this.filteredProducts = this.products;
+    this.setPage(1);
     //this.applyFilters(); (For test if it works)
   }
 
@@ -308,5 +314,19 @@ export class ProductListComponent {
     };
     this.filteredProducts = this.products;
   }
+  setPage(page: number) {
+    this.currentPage = page;
+    const start = (page - 1) * this.pageSize;
+    const end = start + this.pageSize;
+    this.pagedProducts = this.filteredProducts.slice(start, end);
+  }
 
+  setCurrentPage(page: number) {
+    this.setPage(page);
+  }
+
+  get pages(): number[] {
+    const pageCount = Math.ceil(this.filteredProducts.length / this.pageSize);
+    return new Array(pageCount).fill(0).map((_, i) => i + 1);
+  }
 }
