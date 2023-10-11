@@ -29,19 +29,20 @@
       </div>
     </div>
     <br><br>
-    <div class="parallax"></div>
+    <div class="parallax" ></div><br>
     <div class="category-conainer">
         <h3 class="heading">Categories</h3><br>
         <div class="row justify-content-around ">
           <div class="col-lg-2 col-md-6 col-xs-12" *ngFor="let category of categories">
-            <div class="card mb-3 border">
-              <div class="card-body">
-                <img style="height:150px;width:260px" src="{{category.image}}">
-                <h5 class="card-title">{{category.name}}</h5>
+            <div class="card mb-3 border"> 
+              <div class ="overlay" >
+                <img style="height:150px;width:300px" src="{{category.image}}">
+                <!-- <h5 class="card-title">{{category.name}}</h5> -->
+                <div class="catName">{{category.name}}</div>
+                </div>
               </div>
             </div>
           </div>
-          
         </div>
         <br>
       </div>
