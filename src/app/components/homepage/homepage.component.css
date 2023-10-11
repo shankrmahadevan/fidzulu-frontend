@@ -45,6 +45,10 @@
   border: 5px solid black;
 }
 
+.home-container {
+  background-color: ivory;
+}
+
 @media only screen and (max-width: 920px) {
 
   

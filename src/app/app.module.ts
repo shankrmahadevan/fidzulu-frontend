@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProductInfoComponent,
     FooterComponent,
     HomepageComponent,
-    NavbarComponent
+    NavbarComponent,
+    CategoryCardComponent
   ],
   imports: [
     BrowserModule,
