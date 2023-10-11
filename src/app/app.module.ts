@@ -9,6 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import {HttpClientModule} from "@angular/common/http";
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 
 @NgModule({
@@ -18,6 +20,7 @@ import { CategoryCardComponent } from './components/category-card/category-card.
     FooterComponent,
     HomepageComponent,
     NavbarComponent,
+    ShoppingCartComponent,
     CategoryCardComponent
   ],
   imports: [
@@ -25,6 +28,7 @@ import { CategoryCardComponent } from './components/category-card/category-card.
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
+    HttpClientModule,
     NgbCarouselModule
   ],
   providers: [],

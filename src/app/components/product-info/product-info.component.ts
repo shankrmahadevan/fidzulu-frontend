@@ -2,12 +2,13 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Product} from 'src/app/models/product';
 import {ProductService} from "../../services/product.service";
 
+
 @Component({
   selector: 'app-product-info',
   templateUrl: './product-info.component.html',
   styleUrls: ['./product-info.component.css']
 })
-export class ProductInfoComponent implements OnInit{
+export class ProductInfoComponent implements OnInit {
   @Input("product") product!: Product;
   reviews = [
     {
@@ -58,9 +59,10 @@ export class ProductInfoComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.productService.getAllBooks().subscribe(
-      (books) => {
-        this.product = books[0]
+    this.productService.getAllProducts('toys').subscribe(
+      (products) => {
+        this.product = products[10]
+        console.log(this.product)
       }
     )
   }
@@ -76,4 +78,7 @@ export class ProductInfoComponent implements OnInit{
   get_you_save() {
     return (this.get_mrp() * 0.1).toFixed(2)
   }
+
+  protected readonly arrayInit = Array;
+  protected readonly math = Math;
 }

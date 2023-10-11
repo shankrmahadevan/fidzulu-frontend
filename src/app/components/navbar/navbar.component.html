@@ -31,10 +31,11 @@
                 <button (click)="changeCategory('DVDs')" ngbDropdownItem>DVDs</button>
                 <button (click)="changeCategory('Laptops')" ngbDropdownItem>Laptops</button>
             </div>
-
         </div>
         <input #searchInput class="search-input" placeholder="Search Fidzulu" (focus)="changeFocus(true)" (blur)="changeFocus(false)" />
-        <button class="search-btn"><fa-icon [icon]="icons.faMagnifyingGlass"></fa-icon></button>
+      <button class="search-btn" (click)="searchKeyword()">
+        <fa-icon [icon]="icons.faMagnifyingGlass"></fa-icon>
+      </button>
     </div>
     <div class="nav-btns">
         <button class="nav-btn">
