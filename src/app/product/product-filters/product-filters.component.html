@@ -40,21 +40,21 @@
             <h5>Filter by Price Range</h5>
             <div class="row">
               <div class="col-md-4 text-end">
-                <span>{{ minPrice | currency }}</span>
+                <span>{{ productListService.minPrice | currency }}</span>
               </div>
               <div class="col-md-4 text-center">
                 <input
                   type="range"
                   class="form-range"
-                  [min]="minPrice"
-                  [max]="maxPrice"
+                  [min]="productListService.minPrice"
+                  [max]="productListService.maxPrice"
                   [step]="1"
                   id="customRange3"
                   (input)="updatePriceRange($event)"
                 />
               </div>
               <div class="col-md-4 text-start">
-                <span>{{ maxPrice | currency }}</span>
+                <span>{{ productListService.maxPrice | currency }}</span>
               </div>
             </div>
             <div class="text-center mt-2">

@@ -11,6 +11,8 @@ import { CurrencyPipe } from '@angular/common';
   styleUrls: ['./product-item.component.css'],
 })
 export class ProductItemComponent {
+  protected readonly arrayInit = Array;
+  protected readonly math = Math;
   @Input() product!: Product;
 
   stars: string[] = [];
@@ -43,16 +45,16 @@ export class ProductItemComponent {
 
   calculateStars() {
     const rating = this.product.rating;
-    const roundedRating = Math.round(rating * 2) / 2; // Round to the nearest half
-    const fullStars = Math.floor(roundedRating);
-    const hasHalfStar = roundedRating % 1 !== 0;
-    const emptyStars = hasHalfStar ? 5 - fullStars - 1 : 5 - fullStars;
+    // const roundedRating = Math.round(rating * 2) / 2; // Round to the nearest half
+    // const fullStars = Math.floor(roundedRating);
+    // const hasHalfStar = roundedRating % 1 !== 0;
+    // const emptyStars = hasHalfStar ? 5 - fullStars - 1 : 5 - fullStars;
 
-    this.stars = Array(fullStars).fill('fa fa-star'); // Full stars
-    if (hasHalfStar) {
-      this.stars.push('fa fa-star-half'); // Half star
-    }
-    this.stars = this.stars.concat(Array(emptyStars).fill('fa fa-star-o')); // Empty stars
+    // this.stars = Array(fullStars).fill('fa fa-star'); // Full stars
+    // if (hasHalfStar) {
+    //   this.stars.push('fa fa-star-half'); // Half star
+    // }
+    // this.stars = this.stars.concat(Array(emptyStars).fill('fa fa-star-o')); // Empty stars
   }
   calculateEffectivePrice() {
     const price = this.product.price;

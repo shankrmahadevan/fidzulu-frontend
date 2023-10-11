@@ -13,9 +13,17 @@
           <h5 class="card-title product-name">{{ product.product_name }}</h5>
 
           <div class="">
-            <ng-container *ngFor="let star of stars">
-              <span class="fa fa-star" style="color: green !important"></span>
-            </ng-container>
+            <!-- <ng-container *ngFor="let star of stars"> -->
+            <!-- <span class="fa fa-star" style="color: green !important"></span> -->
+            <span
+              class="fa fa-star"
+              *ngFor="let i of arrayInit(math.floor(product.rating))"
+            ></span>
+            <span
+              class="fa fa-star-half"
+              *ngIf="product.rating % 1 != 0"
+            ></span>
+            <!-- </ng-container> -->
           </div>
 
           <div>

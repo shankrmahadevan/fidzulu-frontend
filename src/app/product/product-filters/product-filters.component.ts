@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import { ProductListService } from '../product-list.service';
 
 @Component({
   selector: 'app-product-filters',
@@ -9,14 +10,15 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductFiltersComponent {
   @Output('filter') applyFiltersEvent = new EventEmitter<any>();
-  @Input() minPrice: number = 1;
-  @Input() maxPrice: number = 1000;
   @Output() priceRangeChanged = new EventEmitter<number[]>();
   @Output() sortBy!: string;
   currentPrice: number = 0;
   brands: string[] = [];
-  constructor(private productService: ProductService) {
-    productService.getAllProducts('toys').subscribe((products) => {
+  constructor(
+    private productService: ProductService,
+    public productListService: ProductListService
+  ) {
+    productService.getAllProducts('books').subscribe((products) => {
       for (let product of products) {
         console.log();
         if (!this.brands.includes(product.brand.toLowerCase())) {

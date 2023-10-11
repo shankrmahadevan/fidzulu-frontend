@@ -17,8 +17,7 @@ export class ProductService {
       this.sessionService.getLocation(),
     toys: 'http://localhost:3033/toys/all/' + this.sessionService.getLocation(),
     books:
-      'http://localhost:8080/classB/books/all/' +
-      this.sessionService.getLocation(),
+      'http://localhost:3034/books/all/' + this.sessionService.getLocation(),
     dvds:
       'http://localhost:8080/classB/dvd/all/' +
       this.sessionService.getLocation(),
@@ -67,7 +66,8 @@ export class ProductService {
 
   filterProducts(products: Product[], filters: any): Product[] {
     let filteredProducts = [...products];
-    console.log(filteredProducts);
+
+    console.log(filteredProducts, 'dgajshdgajshdgjashdgjasdhgjashgjh');
 
     // Filter by brand
     if (filters.brands && filters.brands.length > 0) {
@@ -78,13 +78,23 @@ export class ProductService {
     }
 
     // Filter by price range
-    if (filters.price) {
+    console.log('Filters price:', filters);
+    if (filters.price != undefined) {
+      console.log('Filters fjhsdkfjhskdfjhk');
       let priceFiltered = [];
       for (let product of filteredProducts) {
+        console.log(
+          'Product price: ',
+          product.price,
+          filters.price.min,
+          filters.price.max
+        );
         if (
           product.price >= filters.price.min &&
           product.price <= filters.price.max
         ) {
+          //console.log("Product price: ",product.price, filters.price.min, filters.price.max);
+          console.log('Inside the conditional of price filter');
           priceFiltered.push(product);
         }
       }
