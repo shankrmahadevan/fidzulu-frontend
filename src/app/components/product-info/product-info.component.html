@@ -6,12 +6,9 @@
     <div class="product-name row">
       <div class="col-lg-6"><h1 id="product-name">{{product.product_name}}</h1></div>
       <div class="review-stars col-lg-6">
-        <span id="review-stars-text">4 (1,683)</span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star unchecked"></span>
+        <span id="review-stars-text">{{product.rating}} (1,683)</span>
+        <span class="fa fa-star" *ngFor="let i of arrayInit(math.floor(product.rating))"></span>
+        <span class="fa fa-star-half" *ngIf="product.rating % 1 != 0"></span>
       </div>
     </div>
     <div class="price">
@@ -22,7 +19,7 @@
         (10%)</span></p>
     </div>
     <div class="description">
-      <h2>About this item</h2>
+      <h4>About this item</h4>
       <p>{{product.product_description}}</p>
     </div>
     <div class="contact-placeholder">

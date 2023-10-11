@@ -9,7 +9,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ProductService {
   urls: { [key: string]: string } = {
-    'bikes': 'http://localhost:8080/classA/bike/all/' + this.sessionService.getLocation(),
+    'bikes': 'http://localhost:3000/bikes/all/' + this.sessionService.getLocation(),
     'food': 'http://localhost:8080/classA/food/all/' + this.sessionService.getLocation(),
     'toys': 'http://localhost:3033/toys/all/' + this.sessionService.getLocation(),
     'books': 'http://localhost:8080/classB/books/all/' + this.sessionService.getLocation(),
