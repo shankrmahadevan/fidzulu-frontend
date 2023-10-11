@@ -1,29 +1,14 @@
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-@font-face {
-  font-family: 'fidelity-sans';
-  src: url('../../../assets/fonts/FidelitySansRegular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-/*Remove*/
-.navbar {
-  height: 100px;
-}
+/* @import '~@fortawesome/fontawesome-free/css/all.css';*/
 
-.footer {
-  height: 100px;
-}
-
-/*Remove*/
 .product-details {
   background-color: ivory;
-  height: 100vh;
+  position: relative;
 }
 
 .product-img-thumbnail {
-  width: fit-content;
-  height: fit-content;
+  width: 300px;
+  translate: -50px 50px;
 }
 
 .product-img-thumbnail img {
@@ -31,11 +16,11 @@
 }
 
 .product-details-container {
-  margin-left: 30px;
+  margin-left: 100px;
 }
 
-#product-name{
-  font-family:fidelity-sans;
+#product-name {
+  font-family: "Fidelity Sans";
 }
 
 .checked {
@@ -56,8 +41,6 @@
 }
 
 .price {
-  /*text-align: right;*/
-  /*width: 200px;*/
   margin: 20px 20px 20px 40px;
 }
 
@@ -86,7 +69,7 @@
 .contact-placeholder {
   margin-top: 50px;
 }
-/* @import '~@fortawesome/fontawesome-free/css/all.css';*/
+
 
 .rating {
   color: #568200;
@@ -95,22 +78,20 @@
 .card {
   width: 300px;
   height: 220px;
-  margin: 10px;
   border: 2px solid #000;
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.border{
+.border {
   border: 5px solid black;
 }
 
-.heading{
-
-  text-align:center;
+.heading {
+  text-align: center;
 }
 
-.similarProducts{
-  background-color:lightblue;
+.similarProducts {
+  background-color: lightblue;
 }
 
 .review-container {

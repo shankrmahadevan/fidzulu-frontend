@@ -28,12 +28,12 @@ export class ProductInfoComponent implements OnInit{
       name: 'Lalith',
       description: 'I can confidently say that this product is perfect in every aspect. From the build quality to the performance, it excels in every way.'
     },
-    {
-      date: '4 days ago',
-      stars: 5.0,
-      name: 'Lalith',
-      description: 'I can confidently say that this product is perfect in every aspect. From the build quality to the performance, it excels in every way.'
-    },
+    // {
+    //   date: '4 days ago',
+    //   stars: 5.0,
+    //   name: 'Lalith',
+    //   description: 'I can confidently say that this product is perfect in every aspect. From the build quality to the performance, it excels in every way.'
+    // },
   ];
   similarProducts = [
     {

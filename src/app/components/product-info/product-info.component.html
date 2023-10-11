@@ -1,6 +1,5 @@
-<div class="navbar"></div>
 <div class="product-details row">
-  <div class="product-img-thumbnail col-lg-4 offset-1">
+  <div class="product-img-thumbnail col-lg-6 offset-1">
     <img [src]="product.img_thumbnail">
   </div>
   <div class="product-details-container col-lg-6">
@@ -35,11 +34,11 @@
     <hr>
   </div>
   <!--  review-section-->
-  <div class="container review-container">
+  <div class="review-container">
     <h3 class="heading">Don't take our word for it</h3>
     <div class="row justify-content-around">
       <div class="col-lg-2 col-md-6 col-xs-12" *ngFor="let review of reviews">
-        <div class="card border">
+        <div class="card mb-3 border">
           <div class="card-body">
             <p style="float:right; font-size:small; color:grey">{{review.date}}</p>
             <div class="rating">
@@ -79,4 +78,3 @@
     <br><br>
   </div>
 </div>
-<div class="footer"></div>

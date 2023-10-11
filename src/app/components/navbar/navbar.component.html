@@ -2,11 +2,11 @@
     <div>
         <fa-icon [icon]="icons.faBars"></fa-icon>
     </div>
-    <h1 class="title">FidZulu</h1>
+  <a class="title" routerLink="/">FidZulu</a>
     <div ngbDropdown class="d-inline-block">
         <button type="button" class="btn nav-dropdown" id="dropdownBasic1" ngbDropdownToggle>
             Location
-            <p>{{country}}</p>
+          {{country}}
         </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <button (click)="changeCountry('India')" ngbDropdownItem >India</button>
@@ -16,7 +16,7 @@
     </div>
     <div class="search-container" [ngClass]="onFocus ? 'search-focus': ''" >
         <div ngbDropdown class="d-inline-block">
-            <button type="button" class="category-dropdown" id="dropdownBasic1" ngbDropdownToggle>
+          <button type="button" class="category-dropdown" id="dropdownBasic2" ngbDropdownToggle>
                 {{category}}
             </button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
@@ -24,7 +24,7 @@
                 <button (click)="changeCategory('Toys')" ngbDropdownItem>Toys</button>
                 <button (click)="changeCategory('Bikes')" ngbDropdownItem>Bikes</button>
             </div>
-            
+
         </div>
         <input #searchInput class="search-input" placeholder="Search Fidzulu" (focus)="changeFocus(true)" (blur)="changeFocus(false)" />
         <button class="search-btn"><fa-icon [icon]="icons.faMagnifyingGlass"></fa-icon></button>
