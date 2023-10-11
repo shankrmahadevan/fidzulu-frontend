@@ -1,3 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("assets/fonts.css");
 
+.carousel{
+    width: 50vw;
+    margin: auto;
+}
+.carousel-control-prev{
+    background-color: #568200;
+    width: 5vw;
+}
+
+.carousel-control-next{
+    background-color: #568200;
+    width: 5vw;
+}
+.carousel-indicators button{
+    background-color: #568200;
+    color: #568200;
+}
