@@ -17,7 +17,6 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import {HttpClientModule} from "@angular/common/http";
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { TeamsComponent } from './components/teams/teams.component';
 
@@ -27,7 +26,7 @@ import { TeamsComponent } from './components/teams/teams.component';
     ProductItemComponent,
     ProductListComponent,
     ProductFiltersComponent,
-    ProductPageComponent,,
+    ProductPageComponent,
     ProductInfoComponent,
     FooterComponent,
     HomepageComponent,
@@ -41,7 +40,7 @@ import { TeamsComponent } from './components/teams/teams.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule,,
+    FormsModule,
     FontAwesomeModule,
     HttpClientModule,
     NgbCarouselModule

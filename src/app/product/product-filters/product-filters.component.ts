@@ -18,7 +18,7 @@ export class ProductFiltersComponent {
     private productService: ProductService,
     public productListService: ProductListService
   ) {
-    productService.getAllProducts('books').subscribe((products) => {
+    productService.getAllProducts('toys').subscribe((products) => {
       for (let product of products) {
         console.log();
         if (!this.brands.includes(product.brand.toLowerCase())) {

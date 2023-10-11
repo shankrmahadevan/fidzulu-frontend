@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from 'src/app/models/product';
 import {ProductService} from "../../services/product.service";
+import { SessionService } from 'src/app/services/session.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -51,7 +53,7 @@ export class ProductInfoComponent implements OnInit {
     },
   ];
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private sessionService:SessionService, private routerMap:ActivatedRoute) {
   }
 
   getStarArray(stars: number): number[] {
@@ -59,9 +61,16 @@ export class ProductInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productService.getAllProducts('toys').subscribe(
+    this.productService.getAllProducts(this.sessionService.category).subscribe(
       (products) => {
-        this.product = products[5]
+        console.log(this.routerMap.snapshot.paramMap.get('id'), "jhkjhfdsdfkj");
+        for(let product of products){
+          if(product.product_id == parseInt(this.routerMap.snapshot.paramMap.get('id') || "0")){
+              this.product = product
+              break;
+          }
+        }
+        // this.product = products[5]
         console.log(this.product)
       }
     )

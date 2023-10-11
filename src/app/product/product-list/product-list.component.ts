@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductListService } from '../product-list.service';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-product-list',
@@ -24,9 +25,11 @@ export class ProductListComponent {
 
   constructor(
     private productService: ProductService,
-    private productListService: ProductListService
+    private productListService: ProductListService,
+    private sessionService:SessionService
   ) {
-    productService.getAllProducts('books').subscribe((data) => {
+    sessionService.category = 'toys'
+    productService.getAllProducts('toys').subscribe((data) => {
       console.log(data);
       this.products = data;
       this.filteredProducts = data;
