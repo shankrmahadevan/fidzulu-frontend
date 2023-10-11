@@ -58,7 +58,7 @@ export class ProductInfoComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.productService.getAllBooks().subscribe(
+    this.productService.getAllProducts('book').subscribe(
       (books) => {
         this.product = books[0]
       }

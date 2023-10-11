@@ -12,7 +12,7 @@ export class SessionService {
   }
 
   public getLocation() {
-    return location
+    return this.location
   }
 
   public setLocation(value: 'US-NC' | 'IRE' | 'IND') {

@@ -20,14 +20,16 @@
                 {{category}}
             </button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button (click)="changeCategory('Books')" ngbDropdownItem >Books</button>
-                <button (click)="changeCategory('Toys')" ngbDropdownItem>Toys</button>
-                <button (click)="changeCategory('Bikes')" ngbDropdownItem>Bikes</button>
+                <button (click)="category = 'Bikes'" ngbDropdownItem >Bikes</button>
+              <button (click)="category = 'Food'" ngbDropdownItem>Food</button>
+              <button (click)="category = 'Toys'" ngbDropdownItem>Toys</button>
+              <button (click)="category = 'Books'" ngbDropdownItem>Books</button>
+              <button (click)="category = 'DVDs'" ngbDropdownItem>DVDs</button>
+              <button (click)="category = 'Laptops'" ngbDropdownItem>Laptops</button>
             </div>
-
         </div>
         <input #searchInput class="search-input" placeholder="Search Fidzulu" (focus)="changeFocus(true)" (blur)="changeFocus(false)" />
-        <button class="search-btn"><fa-icon [icon]="icons.faMagnifyingGlass"></fa-icon></button>
+        <button class="search-btn" (click)="searchKeyword"><fa-icon [icon]="icons.faMagnifyingGlass"></fa-icon></button>
     </div>
     <div class="nav-btns">
         <button class="nav-btn">

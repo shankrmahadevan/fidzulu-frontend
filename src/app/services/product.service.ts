@@ -1,17 +1,28 @@
 import {Injectable} from '@angular/core';
 import {Product} from "../models/product";
 import {Observable, of} from "rxjs";
+import {SessionService} from "./session.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  constructor() {
+  urls: { [key: string]: string } = {
+    'bikes': 'http://localhost:8080/classA/bike/all/' + this.sessionService.getLocation(),
+    'food': 'http://localhost:8080/classA/food/all/' + this.sessionService.getLocation(),
+    'toys': 'http://localhost:8080/classA/toy/all/' + this.sessionService.getLocation(),
+    'books': 'http://localhost:8080/classB/books/all/' + this.sessionService.getLocation(),
+    'dvds': 'http://localhost:8080/classB/dvd/all/' + this.sessionService.getLocation(),
+    'laptops': 'http://localhost:8080/classB/laptop/all/' + this.sessionService.getLocation(),
   }
 
-  getAllBooks(): Observable<Product[]> {
+  constructor(private sessionService: SessionService) {
+  }
+
+  getAllProducts(productType: string): Observable<Product[]> {
+    let url = this.urls[productType.toLowerCase()]
     return of([{
-      product_name: "iPhone 14 Pro max",
+      product_name: "iPhone 14 Pro Max",
       product_description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n" +
         "        Harum id officia reiciendis! Aut beatae ea illum ipsa magni maxime nisi officiis reiciendis\n" +
         "        sequi voluptatem! Aperiam eum illo illum incidunt tempore.A cum ex illum ipsa,\n" +
