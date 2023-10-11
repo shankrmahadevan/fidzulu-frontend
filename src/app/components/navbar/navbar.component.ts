@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faBars, faChevronRight, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,9 @@ export class NavbarComponent {
 
   icons = {
     faMagnifyingGlass: faMagnifyingGlass,
-    faBars: faBars
+    faBars: faBars,
+    arrow: faChevronRight,
+    location: faLocationDot
   }
 
   onFocus = false
@@ -35,5 +38,18 @@ export class NavbarComponent {
   changeFocus(state: boolean) {
     this.onFocus = state;
   }
+
+  closeResult = '';
+
+	constructor(private modalService: NgbModal) {}
+
+	open(content: any) {
+		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+			(result) => {
+				this.closeResult = `Closed with: ${result}`;
+			}
+		);
+	}
+
 
 }

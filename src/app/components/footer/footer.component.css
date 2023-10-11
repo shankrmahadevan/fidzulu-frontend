@@ -42,3 +42,11 @@ a:hover {
 #about {
     margin-right: 20px;
 }
+
+@media only screen and (max-width: 920px) {
+
+    .mobile-hidden {
+        display: none;
+    }
+    
+}
