@@ -1,31 +1,44 @@
-
 <div class="container">
-    <div class="card product-card">
-        <div class="row">
-            <div class="col-md-4">
-                <img src={{product.img_thumbnail}} class="custom-image" alt="Product Image">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title product-name">{{product.product_name}}</h5>
+  <div class="card product-card">
+    <div class="row">
+      <div class="col-md-4">
+        <img
+          src="{{ product.img_thumbnail }}"
+          class="custom-image"
+          alt="Product Image"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title product-name">{{ product.product_name }}</h5>
 
+          <div class="">
+            <ng-container *ngFor="let star of stars">
+              <span class="fa fa-star" style="color: green !important"></span>
+            </ng-container>
+          </div>
 
-                    <div class="rating">
-                      <span *ngFor="let star of stars" class="fa" [ngClass]="star"></span>
-                    </div>                    
-                    
-                    
-                        
-                    <div>
-                      <p class="card-text">
-                        <span style="font-weight: bold; color: green; margin-right: 5px;">{{ product.price }}</span>
-                        <span style="font-weight: bold; color: red; font-size: 75%; margin-right: 5px;">{{ effectivePrice | number: '1.2-2' }}</span>
-                        <span style="font-style: italic; font-size: 50%;">(Price after tax)</span>
-                      </p>
-                    </div>
-                    
-                </div>
-            </div>
+          <div>
+            <p class="card-text">
+              <span style="font-weight: bold; color: green; margin-right: 5px"
+                >{{ currency }}{{ product.price | number : "1.2-2" }}</span
+              >
+              <span
+                style="
+                  font-weight: bold;
+                  color: red;
+                  font-size: 75%;
+                  margin-right: 5px;
+                "
+                >{{ currency }}{{ effectivePrice | number : "1.2-2" }}</span
+              >
+              <span style="font-style: italic; font-size: 50%"
+                >(Price after tax)</span
+              >
+            </p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

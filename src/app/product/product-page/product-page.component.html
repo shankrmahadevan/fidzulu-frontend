@@ -1,0 +1,4 @@
+<div class="container">
+  <app-product-filters (filter)="applyFilters($event)"></app-product-filters>
+  <app-product-list [filters]="filter" #productList></app-product-list>
+</div>

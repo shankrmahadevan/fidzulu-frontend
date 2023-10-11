@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 filters-container">
+      <div class="card">
+        <div class="card-body">
+          <!-- Filter by Ratings -->
+          <div class="mb-4">
+            <h5>Filter by Ratings</h5>
+            <div class="rating-filter">
+              <button
+                (click)="setRatingFilter(1)"
+                [class.active]="filters.rating === 1"
+              >
+                <img src="assets/star1.PNG" alt="1 Star" class="star-image" />
+              </button>
+              <button
+                (click)="setRatingFilter(2)"
+                [class.active]="filters.rating === 2"
+              >
+                <img src="assets/star2.PNG" alt="2 Stars" class="star-image" />
+              </button>
+              <button
+                (click)="setRatingFilter(3)"
+                [class.active]="filters.rating === 3"
+              >
+                <img src="assets/star3.PNG" alt="3 Stars" class="star-image" />
+              </button>
+              <button
+                (click)="setRatingFilter(4)"
+                [class.active]="filters.rating === 4"
+              >
+                <img src="assets/star4.PNG" alt="4 Stars" class="star-image" />
+              </button>
+            </div>
+          </div>
+          <!-- Filter by Price Range -->
+          <!-- Filter by Price Range -->
+          <!-- Filter by Price Range -->
+          <div class="mb-4">
+            <h5>Filter by Price Range</h5>
+            <div class="row">
+              <div class="col-md-4 text-end">
+                <span>{{ minPrice | currency }}</span>
+              </div>
+              <div class="col-md-4 text-center">
+                <input
+                  type="range"
+                  class="form-range"
+                  [min]="minPrice"
+                  [max]="maxPrice"
+                  [step]="1"
+                  id="customRange3"
+                  (input)="updatePriceRange($event)"
+                />
+              </div>
+              <div class="col-md-4 text-start">
+                <span>{{ maxPrice | currency }}</span>
+              </div>
+            </div>
+            <div class="text-center mt-2">
+              <span>{{ currentPrice | currency }}</span>
+            </div>
+          </div>
+
+          <!-- Filter by Brand -->
+          <div>
+            <h5>Filter by Brand</h5>
+            <div class="form-check" *ngFor="let brand of brands">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="selectedBrand"
+                [value]="brand"
+                id="brand-{{ brand }}"
+                (change)="updateBrandFilter(brand)"
+              />
+              <label class="form-check-label" for="brand-{{ brand }}">{{
+                brand
+              }}</label>
+            </div>
+          </div>
+
+          <!-- Apply and Clear Filters Buttons -->
+          <div class="text-center mt-3">
+            <button class="btn btn-primary" (click)="applyFilters()">
+              Apply Filters
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

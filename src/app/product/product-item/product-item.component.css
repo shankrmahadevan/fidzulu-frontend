@@ -24,7 +24,6 @@
     color: #f1c40f; /* Yellow color for stars */
 }
 
-
 .product-price {
     font-weight: bold;
   }
@@ -43,3 +42,6 @@
     font-size: 75%; /* Smaller size */
   }
   
+.starCustom{
+  color:green;
+}

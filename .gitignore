@@ -129,3 +129,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .angular
+src/app/services/session.service.spec.ts
+src/app/services/session.service.ts
