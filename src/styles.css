@@ -2,17 +2,20 @@
 @import url("assets/fonts.css");
 
 .carousel{
-    width: 50vw;
+    width: 100vw;
     margin: auto;
 }
 .carousel-control-prev{
-    background-color: #568200;
     width: 5vw;
 }
-
+.carousel-control-prev:hover{
+    background-color: #3c3e38;
+}
 .carousel-control-next{
-    background-color: #568200;
     width: 5vw;
+}
+.carousel-control-next:hover{
+    background-color: #3c3e38;
 }
 .carousel-indicators button{
     background-color: #568200;
