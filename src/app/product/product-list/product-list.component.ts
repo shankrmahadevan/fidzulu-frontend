@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
-import { ProductListService } from '../product-list.service';
-import { SessionService } from 'src/app/services/session.service';
-import {ActivatedRoute, ParamMap, Params} from "@angular/router";
+import {Component, Input} from '@angular/core';
+import {Product} from 'src/app/models/product';
+import {ProductService} from 'src/app/services/product.service';
+import {ProductListService} from '../product-list.service';
+import {SessionService} from 'src/app/services/session.service';
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
@@ -35,6 +35,7 @@ export class ProductListComponent {
   }
 
   ngOnInit() {
+    this.render(this.route.snapshot.params)
     this.route.params.subscribe(
       (param) => {
         this.searchParam = param
@@ -48,6 +49,7 @@ export class ProductListComponent {
     )
   }
   render(param:Params){
+
     this.category = param["category"] || "";
     let keyWords = param["q"];
     this.productService.getAllProducts(this.category).subscribe((data) => {
