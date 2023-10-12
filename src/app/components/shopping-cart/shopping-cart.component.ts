@@ -7,7 +7,7 @@ import { SessionService } from 'src/app/services/session.service';
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css']
 })
-export class ShoppingCartComponent{
+export class ShoppingCartComponent implements OnInit{
   @Input("product") product!: Product;
   cartItems = this.sessionService.itemsInCart;
   
@@ -22,7 +22,9 @@ export class ShoppingCartComponent{
       img_thumbnail: 'https://hnsgsfp.imgix.net/4/images/detailed/101/canon-eos-r50-aps-c-mirrorless-camera-with-rf-s-18-45mm-f-4.5-6.3-is-stm-lens-white_1.jpg?fit=fill&bg=0FFF&w=1534&h=900&auto=format,compress',
       metadata: 'camOne', timestamp: dateObject
     }
-    this.sessionService.addToCart(itemOne);
+    if (!this.sessionService.isItemInCart(itemOne)) {
+      this.sessionService.addToCart(itemOne);
+    }
   }
 
   removeItem(product: Product) {
@@ -37,6 +39,9 @@ export class ShoppingCartComponent{
     );
   }
 
+  ngOnInit(): void {
+    
+  }
 
 
 }

@@ -11,18 +11,14 @@
   
   .cart-item {
     display: flex;
-    margin-bottom: 20px;
     border: 1px solid #ccc;
     padding: 10px;
-  }
-  
-  .cart-item {
-    display: flex;
     align-items: center;
     max-width: 800px; /* Limit the width to create a portrait look */
     margin: 0 auto; /* Center horizontally */
     border: 1px solid #ccc;
     padding: 10px;
+    margin-bottom: 20px;
   }
   
   .cart-item img {
@@ -35,12 +31,7 @@
   .item-details h3 {
     margin: 0;
   }
-  
-  .total-price {
-    margin-top: 20px;
-    text-align: right;
-    font-weight: bold;
-  }
+
 
   .remove {
     background-color: #e05a5a; 
@@ -54,19 +45,31 @@
     margin: 10px;
     border-radius: 10px;
     height: 60px;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: 90px;
+  }
+    
+  
+  .total-price {
+    text-align: right;
+    font-weight: bold;
   }
 
+  .checkout-container {
+    text-align: right; /* Align the contents to the right */
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
   .checkout {
-        background-color: #568200; 
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin-top: 10px;
-        border-radius: 10px;
-        text-align: right;
+      background-color: #5b8c5a;;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 10px;
   }
-  

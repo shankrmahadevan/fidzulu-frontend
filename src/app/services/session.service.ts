@@ -36,4 +36,8 @@ export class SessionService {
       sessionStorage.setItem(this.cartKey, JSON.stringify(this.itemsInCart));
     }
   }
+
+  public isItemInCart(product: Product): boolean {
+    return this.itemsInCart.some((item) => item.product_id === product.product_id);
+  }
 }
