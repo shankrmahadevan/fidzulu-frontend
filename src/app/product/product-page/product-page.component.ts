@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { ProductListComponent } from '../product-list/product-list.component';
+import {Component, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-product-page',
@@ -12,7 +11,6 @@ export class ProductPageComponent {
   @ViewChild('productList') childComponent: any;
 
   applyFilters(filter: any) {
-    console.log("1")
     this.filter = filter;
     this.childComponent.applyFilters(filter);
   }

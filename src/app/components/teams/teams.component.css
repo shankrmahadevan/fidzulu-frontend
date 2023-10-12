@@ -8,7 +8,7 @@
 .group-img {
     width: 60%;
     object-fit: cover;
-    
+
 }
 
 .title {
@@ -50,3 +50,10 @@
     }
 
 }
+
+/*.rutvik{*/
+/*  font-weight: bold;*/
+/*  font-size: 18px;*/
+/*  color: red;*/
+/*  font-family: "Fidelity Sans";*/
+/*}*/

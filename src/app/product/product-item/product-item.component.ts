@@ -24,16 +24,16 @@ export class ProductItemComponent {
     private router:ActivatedRoute
   ) {}
 
-  currency: string = '$';
+  currency: string = '';
   category = ''
 
   ngOnInit() {
+    this.currency = this.sessionService.getCurrencySymbol(this.sessionService.getLocation())
     this.router.params.subscribe(
       (params) => {
         this.category = params['category']
       }
     )
-    this.currency = this.sessionService.getCurrencySymbol(this.sessionService.getLocation());
     this.loadImage();
     this.calculateStars();
     this.calculateEffectivePrice();
@@ -71,8 +71,20 @@ export class ProductItemComponent {
     // this.stars = this.stars.concat(Array(emptyStars).fill('fa fa-star-o')); // Empty stars
   }
   calculateEffectivePrice() {
-    const price = this.product.price;
-    const taxPercentage = this.product.tax_percentage / 100;
-    this.effectivePrice = price + price * taxPercentage;
+    const price = this.get_mrp()
+    // const taxPercentage = this.product.tax_percentage / 100;
+    this.effectivePrice = this.get_final_price()
+  }
+
+  get_final_price() {
+    return this.product.price + this.product.price * (this.product.tax_percentage / 100)
+  }
+
+  get_mrp() {
+    return this.get_final_price() + this.get_final_price() * 0.1
+  }
+
+  get_you_save() {
+    return (this.get_mrp() * 0.1).toFixed(2)
   }
 }

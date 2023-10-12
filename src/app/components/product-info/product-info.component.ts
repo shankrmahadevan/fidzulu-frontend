@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from 'src/app/models/product';
 import {ProductService} from "../../services/product.service";
-import { SessionService } from 'src/app/services/session.service';
-import { ActivatedRoute } from '@angular/router';
+import {SessionService} from 'src/app/services/session.service';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -66,10 +66,13 @@ export class ProductInfoComponent implements OnInit {
     this.sessionService.locationChange.subscribe(
       () => {
         this.currency = this.sessionService.getCurrencySymbol(this.sessionService.getLocation())
-        this.productService.getAllProducts(this.routerMap.snapshot.paramMap.get('category') || "books").subscribe(
+        let category = this.routerMap.snapshot.paramMap.get('category')
+        this.productService.getAllProducts(category || "books").subscribe(
           (products) => {
+            this.productService.cache[category + this.sessionService.getLocation()] = products;
             for(let product of products){
               if(product.product_id == parseInt(this.routerMap.snapshot.paramMap.get('id') || "0")){
+                product.price = parseFloat(product.price.toString())
                 this.product = product
                 break;
               }
@@ -78,10 +81,13 @@ export class ProductInfoComponent implements OnInit {
         )
       }
     )
-    this.productService.getAllProducts(this.routerMap.snapshot.paramMap.get('category') || "books").subscribe(
+    let category = this.routerMap.snapshot.paramMap.get('category')
+    this.productService.getAllProducts(category || "books").subscribe(
       (products) => {
+        this.productService.cache[category + this.sessionService.getLocation()] = products;
         for(let product of products){
           if(product.product_id == parseInt(this.routerMap.snapshot.paramMap.get('id') || "0")){
+            product.price = parseFloat(product.price.toString())
               this.product = product
               break;
           }
@@ -91,7 +97,7 @@ export class ProductInfoComponent implements OnInit {
   }
 
   get_final_price() {
-    return this.product.price + this.product.price * this.product.tax_percentage
+    return this.product.price + this.product.price * (this.product.tax_percentage / 100)
   }
 
   get_mrp() {

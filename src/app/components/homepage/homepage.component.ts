@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ProductService} from "../../services/product.service";
+import {SessionService} from "../../services/session.service";
 
 @Component({
   selector: 'app-homepage',
@@ -42,14 +43,17 @@ export class HomepageComponent {
       // {name:'Laptops',image:''},
     ]
 
-  constructor(private productService:ProductService) {
+  constructor(private productService: ProductService, private sessionService: SessionService) {
       this.populateCache()
   }
 
   populateCache(){
       for(let category of ['bikes', 'food', 'toys', 'books', 'dvds', 'laptops']){
         this.productService.getAllProducts(category).subscribe((data) => {
-        this.productService.cache[category] = data
+          for (let data_item of data) {
+            data_item.price = parseFloat(data_item.price.toString())
+          }
+          this.productService.cache[category + this.sessionService.getLocation()] = data;
         })
       }
   }

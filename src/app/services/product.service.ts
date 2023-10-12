@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Product} from '../models/product';
-import {Observable, catchError, map, of, throwError} from 'rxjs';
+import {catchError, map, Observable, of, throwError} from 'rxjs';
 import {SessionService} from './session.service';
 import {HttpClient} from '@angular/common/http';
 
@@ -12,18 +12,12 @@ export class ProductService {
     bikes: 'https://midtier-classa.onrender.com/classA/bikes/all/',
     toys: 'https://midtier-classa.onrender.com/classA/toys/all/',
     books: 'http://localhost:3034/books/all/',
-    dvds: 'https://midtier-classb.onrender.com/classB/dvd/all/',
+    dvds: 'https://midtier-classb.onrender.com/classB/dvds/all/',
     food: 'https://midtier-classa.onrender.com/classA/food/all/',
     laptops: 'https://midtier-classb.onrender.com/classB/laptops/all/',
   };
 
   cache: { [key: string]: Product[] } = {
-    'bikes': [],
-    'food': [],
-    'toys': [],
-    'books': [],
-    'dvds': [],
-    'laptops': []
   }
 
   constructor(private sessionService: SessionService, private httpClient: HttpClient) {
@@ -33,10 +27,10 @@ export class ProductService {
     productType = productType.toLowerCase();
     let location = this.sessionService.getLocation();
     let url = this.urls[productType]
-    if (this.cache[productType].length == 0) {
+    if (this.cache[productType + location] == undefined) {
       return this.httpClient.get<Product[]>(url + location);
     } else {
-      return of(this.cache[productType])
+      return of(this.cache[productType + location])
     }
   }
 
@@ -56,14 +50,12 @@ export class ProductService {
   filterProducts(products: Product[], filters: any): Product[] {
     let filteredProducts = [...products];
 
-    console.log(filteredProducts, 'dgajshdgajshdgjashdgjasdhgjashgjh');
 
     // Filter by brand
     if (filters.brands && filters.brands.length > 0) {
       filteredProducts = filteredProducts.filter((product) =>
         filters.brands.includes(product.brand)
       );
-      console.log('After brands Filter', filteredProducts);
     }
 
     // Filter by price range
@@ -78,7 +70,6 @@ export class ProductService {
         }
       }
       filteredProducts = [...priceFiltered];
-      console.log('After price Filter', filteredProducts);
     }
 
     // Filter by rating
@@ -106,7 +97,6 @@ export class ProductService {
         (a, b) => a.timestamp.getTime() - b.timestamp.getTime()
       );
     }
-    console.log();
 
     return products;
   }

@@ -1,7 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {faMagnifyingGlass, faBars, faChevronRight, faLocationDot} from '@fortawesome/free-solid-svg-icons';
+import {faBars, faChevronRight, faLocationDot, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import {ProductService} from "../../services/product.service";
-import {Product} from "../../models/product";
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from "@angular/router";
 import {SessionService} from "../../services/session.service";
@@ -59,7 +58,7 @@ export class NavbarComponent {
   }
 
   searchKeyword() {
-    this.router.navigate(["products" , this.category , "search", this.searchInput.nativeElement.value])
+    this.router.navigate(["products", this.category.toLowerCase(), "search", this.searchInput.nativeElement.value])
   }
 
   getCategory() {

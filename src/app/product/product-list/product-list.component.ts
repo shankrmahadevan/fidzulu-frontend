@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
-import { ProductListService } from '../product-list.service';
-import { SessionService } from 'src/app/services/session.service';
-import {ActivatedRoute, ParamMap, Params} from "@angular/router";
+import {Component, Input} from '@angular/core';
+import {Product} from 'src/app/models/product';
+import {ProductService} from 'src/app/services/product.service';
+import {ProductListService} from '../product-list.service';
+import {SessionService} from 'src/app/services/session.service';
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
@@ -35,6 +35,7 @@ export class ProductListComponent {
   }
 
   ngOnInit() {
+    this.render(this.route.snapshot.params);
     this.route.params.subscribe(
       (param) => {
         this.searchParam = param
@@ -51,9 +52,11 @@ export class ProductListComponent {
     this.category = param["category"] || "";
     let keyWords = param["q"];
 
-    console.log(this.category, keyWords);
-    
     this.productService.getAllProducts(this.category).subscribe((data) => {
+      for (let data_item of data) {
+        data_item.price = parseFloat(data_item.price.toString())
+      }
+      this.productService.cache[this.category + this.sessionService.getLocation()] = data;
       this.products = data;
       this.productListService.products.next(data)
       this.filteredProducts = data;
