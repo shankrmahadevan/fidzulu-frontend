@@ -11,7 +11,7 @@ export class ProductService {
   urls: { [key: string]: string } = {
     bikes: 'https://midtier-classa.onrender.com/classA/bikes/all/',
     toys: 'https://midtier-classa.onrender.com/classA/toys/all/',
-    books: 'https://midtier-classb.onrender.com/classB/books/all/',
+    books: 'http://localhost:3034/books/all/',
     dvds: 'https://midtier-classb.onrender.com/classB/dvd/all/',
     food: 'https://midtier-classa.onrender.com/classA/food/all/',
     laptops: 'https://midtier-classb.onrender.com/classB/laptops/all/',

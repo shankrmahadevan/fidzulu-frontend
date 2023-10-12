@@ -19,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { TeamsComponent } from './components/teams/teams.component';
+import { ThankYouComponent } from './components/thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TeamsComponent } from './components/teams/teams.component';
     NavbarComponent,
     ShoppingCartComponent,
     CategoryCardComponent,
-    TeamsComponent
+    TeamsComponent,
+    ThankYouComponent
   ],
   imports: [
     BrowserModule,

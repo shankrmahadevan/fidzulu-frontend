@@ -15,10 +15,10 @@ export class TeamsComponent implements OnInit {
   ngOnInit(): void {
     
     // ['bikes', 'food', 'toys', 'books', 'dvds', 'laptops']
-      for(let category of ['toys', 'dvds']){
+      for(let category of ['bikes', 'food', 'toys', 'books', 'dvds', 'laptops']){
 
         this.teamService.getBackendTeam(category).subscribe(data => {
-          data.memberNames.forEach((name: any) => {
+          data.membersNames.forEach((name: any) => {
             this.backendTeamMembers.push(name)
           })
           

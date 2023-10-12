@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(82, 198, 123);
+}
+
+
+.thank-you-img {
+    height: 90vh;
+
+}
+
+
+@media only screen and (max-width: 920px) {
+    .thank-you-img {
+        width: 90vw;
+        height: fit-content;
+    
+    }
+
+    .container {
+        height: 100vh;
+    }
+
+}

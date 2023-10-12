@@ -12,9 +12,9 @@ export class TeamService {
     'bikes': 'https://midtier-classa.onrender.com/classA/bikes/team',
     'food': 'https://midtier-classa.onrender.com/classA/food/team',
     'toys': 'https://midtier-classa.onrender.com/classA/toys/team',
-    'books': 'http://localhost:8080/classB/books/team',
+    'books': 'http://localhost:3034/books/team',
     'dvds': 'https://midtier-classb.onrender.com/classB/dvd/team',
-    'laptops': 'http://localhost:8080/classB/laptop/team'
+    'laptops': 'https://midtier-classb.onrender.com/classB/laptops/team'
   }
 
   getBackendTeam(category: string): Observable<any> {
