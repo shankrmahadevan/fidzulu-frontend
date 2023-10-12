@@ -23,6 +23,9 @@
       <h4>About this item</h4>
       <p>{{product.product_description}}</p>
     </div>
+    <button class="btn btn-success" style="background-color: var(--fidelity-green)"
+            (click)="sessionService.addToCart(product);alert('Added to Cart!')">Add to Cart
+    </button>
     <div class="contact-placeholder">
       <p><span class="fa fa-commenting-o" style="margin-right: 5px"></span>Got any questions? <span
         style="text-decoration:underline">Contact us</span></p>
