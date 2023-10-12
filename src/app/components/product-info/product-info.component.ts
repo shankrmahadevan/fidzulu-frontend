@@ -55,7 +55,7 @@ export class ProductInfoComponent implements OnInit {
 
   currency = '$';
 
-  constructor(private productService: ProductService, private sessionService:SessionService, private routerMap:ActivatedRoute) {
+  constructor(private productService: ProductService, public sessionService:SessionService, private routerMap:ActivatedRoute) {
   }
 
   getStarArray(stars: number): number[] {
@@ -105,4 +105,5 @@ export class ProductInfoComponent implements OnInit {
   protected readonly arrayInit = Array;
   protected readonly math = Math;
 
+  protected readonly alert = alert;
 }
