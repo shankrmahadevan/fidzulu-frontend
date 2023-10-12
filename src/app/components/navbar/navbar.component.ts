@@ -4,6 +4,7 @@ import {ProductService} from "../../services/product.service";
 import {Product} from "../../models/product";
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from "@angular/router";
+import {SessionService} from "../../services/session.service";
 
 @Component({
   selector: 'app-navbar',
@@ -24,11 +25,11 @@ export class NavbarComponent {
 
   onFocus = false
 
-  country = "India"
+  country = "US-NC"
 
   category = sessionStorage['category'] || "Bikes"
 
-  constructor(private router: Router, private modalService: NgbModal, private productService: ProductService) {
+  constructor(private router: Router, private modalService: NgbModal, private productService: ProductService, private sessionService:SessionService) {
   }
 
   ngOnInit() {
@@ -39,8 +40,9 @@ export class NavbarComponent {
     sessionStorage['category'] = category
   }
 
-  changeCountry(country: string) {
+  changeCountry(country: "US-NC" | "IE" | "IN") {
     this.country = country
+    this.sessionService.setLocation(country)
   }
 
   changeFocus(state: boolean) {
@@ -48,11 +50,7 @@ export class NavbarComponent {
   }
 
   searchKeyword() {
-    this.router.navigate(["products" , this.category , "search"], {
-      queryParams: {
-        'q': this.searchInput.nativeElement.value
-      }
-    })
+    this.router.navigate(["products" , this.category , "search", this.searchInput.nativeElement.value])
   }
 
   getCategory() {

@@ -12,8 +12,8 @@ export class ProductPageComponent {
   @ViewChild('productList') childComponent: any;
 
   applyFilters(filter: any) {
+    console.log("1")
     this.filter = filter;
-    console.log('product page ', this.filter);
     this.childComponent.applyFilters(filter);
   }
 }

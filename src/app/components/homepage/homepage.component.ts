@@ -8,12 +8,12 @@ import {ProductService} from "../../services/product.service";
 })
 export class HomepageComponent {
   images=[
-    {name:'laptop.jpg',caption:'Laptops'},
-    {name:'book.jpg',caption:'Books'},
-    {name:'bike.jpg',caption:'Bikes'},
-    {name:'food.jpg',caption:'Food'},
-    {name:'dvd.jpg',caption:'DVD'},
-    {name:'toy.jpg',caption:'Toys'},
+    {name:'laptop.jpg',caption:'Laptops',category:'laptops'},
+    {name:'book.jpg',caption:'Books',category:'books'},
+    {name:'bike.jpg',caption:'Bikes',category:'bikes'},
+    {name:'food.jpg',caption:'Food',category:'food'},
+    {name:'dvd.jpg',caption:'DVD',category:'dvds'},
+    {name:'toy.jpg',caption:'Toys',category:'toys'},
   ];
 
   trendingProducts = [
@@ -36,7 +36,7 @@ export class HomepageComponent {
     categories = [
       {name:'Bikes',image:'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmlrZXN8ZW58MHx8MHx8fDA%3D&w=1000&q=80'},
       // {name:'Books & Toys',image:'https://www.sassymamasg.com/wp-content/uploads/2022/08/great-singapore-deals-toys-r-us.jpg'},
-      {name:'Electronics',image:'https://thumbs.dreamstime.com/b/many-used-modern-electronic-gadgets-use-white-floor-reuse-recycle-concept-top-view-164230611.jpg'},
+      {name:'Laptops',image:'https://thumbs.dreamstime.com/b/many-used-modern-electronic-gadgets-use-white-floor-reuse-recycle-concept-top-view-164230611.jpg'},
       {name:'Food',image:'https://www.eatingwell.com/thmb/m5xUzIOmhWSoXZnY-oZcO9SdArQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/article_291139_the-top-10-healthiest-foods-for-kids_-02-4b745e57928c4786a61b47d8ba920058.jpg'},
       // {name:'Toys',image:''},
       // {name:'Laptops',image:''},

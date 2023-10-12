@@ -46,13 +46,19 @@
 .border {
   border: 5px solid black;
 }
+.carousel-caption-l{
+  cursor: pointer;
+}
+.carousel-caption-l:hover{
+  color: lightseagreen;
+}
 
 .home-container {
   background-color: ivory;
 }
 
 .parallax {
-  background-image: url("https://static.vecteezy.com/system/resources/previews/000/178/440/original/vector-modern-abstract-offer-discount-advertising-banner-design-templat.jpg");
+  background-image: url("../../../assets/images/vector-modern-abstract-offer-discount-advertising-banner-design-templat.jpg");
 
 
   min-height: 600px;

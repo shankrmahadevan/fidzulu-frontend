@@ -40,18 +40,20 @@ export class ProductInfoComponent implements OnInit {
   ];
   similarProducts = [
     {
-      price: '$699.99', name: 'Cannon EOS 90D',
+      price: '699.99', name: 'Cannon EOS 90D',
       image: 'https://hnsgsfp.imgix.net/4/images/detailed/101/canon-eos-r50-aps-c-mirrorless-camera-with-rf-s-18-45mm-f-4.5-6.3-is-stm-lens-white_1.jpg?fit=fill&bg=0FFF&w=1534&h=900&auto=format,compress'
     },
     {
-      price: '$1099.99', name: 'iPad Air',
+      price: '1099.99', name: 'iPad Air',
       image: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-finish-select-gallery-202211-blue-wificell_AV1_FMT_WHH?wid=1280&hei=720&fmt=p-jpg&qlt=95&.v=1670633074188'
     },
     {
-      price: '$99.99', name: 'iPhone 14 Pro',
+      price: '99.99', name: 'iPhone 14 Pro',
       image: 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-13-finish-select-202207-pink?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1693063160403'
     },
   ];
+
+  currency = '$';
 
   constructor(private productService: ProductService, private sessionService:SessionService, private routerMap:ActivatedRoute) {
   }
@@ -61,17 +63,29 @@ export class ProductInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productService.getAllProducts(this.sessionService.category).subscribe(
+    this.sessionService.locationChange.subscribe(
+      () => {
+        this.currency = this.sessionService.getCurrencySymbol(this.sessionService.getLocation())
+        this.productService.getAllProducts(this.routerMap.snapshot.paramMap.get('category') || "books").subscribe(
+          (products) => {
+            for(let product of products){
+              if(product.product_id == parseInt(this.routerMap.snapshot.paramMap.get('id') || "0")){
+                this.product = product
+                break;
+              }
+            }
+          }
+        )
+      }
+    )
+    this.productService.getAllProducts(this.routerMap.snapshot.paramMap.get('category') || "books").subscribe(
       (products) => {
-        console.log(this.routerMap.snapshot.paramMap.get('id'), "jhkjhfdsdfkj");
         for(let product of products){
           if(product.product_id == parseInt(this.routerMap.snapshot.paramMap.get('id') || "0")){
               this.product = product
               break;
           }
         }
-        // this.product = products[5]
-        console.log(this.product)
       }
     )
   }
@@ -90,4 +104,5 @@ export class ProductInfoComponent implements OnInit {
 
   protected readonly arrayInit = Array;
   protected readonly math = Math;
+
 }

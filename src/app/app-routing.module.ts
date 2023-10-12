@@ -9,7 +9,7 @@ import { ProductPageComponent } from './product/product-page/product-page.compon
 const routes: Routes = [
   { path: '', component: HomepageComponent, pathMatch: 'full' },
   { path: 'products/:category', component: ProductPageComponent },
-  { path: 'products/:category/search', component: ProductPageComponent },
+  { path: 'products/:category/search/:q', component: ProductPageComponent },
   { path: 'product/:category/:id', component: ProductInfoComponent },
   { path: 'cart', component: ShoppingCartComponent },
   { path: 'about', component: TeamsComponent }

@@ -1,9 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
-import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
-import { SessionService } from 'src/app/services/session.service';
-import { CurrencyPipe } from '@angular/common';
+import {Component, Input} from '@angular/core';
+import {Product} from 'src/app/models/product';
+import {ProductService} from 'src/app/services/product.service';
+import {SessionService} from 'src/app/services/session.service';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-product-item',
@@ -21,19 +20,34 @@ export class ProductItemComponent {
 
   constructor(
     private sessionService: SessionService,
-    private productservice: ProductService
+    private productService: ProductService,
+    private router:ActivatedRoute
   ) {}
 
-  currency: string = this.getCurrencySymbol(this.sessionService.getLocation());
+  currency: string = '$';
+  category = ''
 
   ngOnInit() {
+    this.router.params.subscribe(
+      (params) => {
+        this.category = params['category']
+      }
+    )
+    this.currency = this.sessionService.getCurrencySymbol(this.sessionService.getLocation());
     this.loadImage();
     this.calculateStars();
     this.calculateEffectivePrice();
+    this.sessionService.locationChange.subscribe(
+      () => {
+        this.currency = this.sessionService.getCurrencySymbol(this.sessionService.getLocation());
+        this.loadImage();
+        this.calculateStars();
+        this.calculateEffectivePrice();
+      })
   }
 
   loadImage() {
-    this.productservice.getImage(this.product.img_thumbnail).subscribe(
+    this.productService.getImage(this.product.img_thumbnail).subscribe(
       (url: string) => {
         this.product.img_thumbnail = url;
       },
@@ -60,18 +74,5 @@ export class ProductItemComponent {
     const price = this.product.price;
     const taxPercentage = this.product.tax_percentage / 100;
     this.effectivePrice = price + price * taxPercentage;
-  }
-
-  private getCurrencySymbol(location: string): string {
-    switch (location) {
-      case 'US-NC':
-        return '$'; // United States currency symbol
-      case 'IE':
-        return '€'; // Euro currency symbol
-      case 'IN':
-        return '₹'; // Indian Rupee currency symbol
-      default:
-        return ''; // Default currency symbol if location doesn't match
-    }
   }
 }
