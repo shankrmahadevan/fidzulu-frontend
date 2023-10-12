@@ -50,6 +50,9 @@ export class ProductListComponent {
   render(param:Params){
     this.category = param["category"] || "";
     let keyWords = param["q"];
+
+    console.log(this.category, keyWords);
+    
     this.productService.getAllProducts(this.category).subscribe((data) => {
       this.products = data;
       this.productListService.products.next(data)

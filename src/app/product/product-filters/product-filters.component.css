@@ -37,3 +37,10 @@
 .star-bg {
   color: var(--fidelity-green);
 }
+
+@media only screen and (max-width: 920px) {
+
+  .brand-filter {
+    display: none;
+  }
+}

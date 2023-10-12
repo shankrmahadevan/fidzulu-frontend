@@ -2,9 +2,9 @@
 
   <ngb-carousel [interval]="3000">
     <ng-template ngbSlide *ngFor="let image of images">
-      <div class="carousel-wrapper">
+      <div class="carousel-wrapper" [routerLink]="['/products', image.category]">
         <img src="assets/images/covers/{{image.name}}" [alt]="image.caption">
-        <div class="caption carousel-caption-l" [routerLink]="['/products', image.category]">Shop {{image.caption}}
+        <div class="caption carousel-caption-l" >Shop {{image.caption}}
         </div>
       </div>
     </ng-template>
@@ -36,13 +36,11 @@
     <div class="category-container">
       <h3 class="heading">Categories</h3><br>
       <div class="row">
-          <div class="card border" *ngFor="let category of categories">
+          <div [routerLink]="['/products', category.name]" class="card border" *ngFor="let category of categories">
             <div class="overlay">
               <img class="category-card-image" src="{{category.image}}">
               <!-- <h5 class="card-title">{{category.name}}</h5> -->
-              <a [routerLink]="['/products', category.name]">
                 <div class="catName">{{category.name}}</div>
-              </a>
             </div>
           </div>
         </div>

@@ -9,12 +9,12 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ProductService {
   urls: { [key: string]: string } = {
-    bikes: 'http://localhost:3000/bikes/all/',
-    toys: 'http://localhost:3033/toys/all/',
-    books: 'http://localhost:3034/books/all/',
-    dvds: 'http://localhost:8080/classB/dvd/all/',
-    food: 'http://localhost:8080/classA/food/all/',
-    laptops: 'http://localhost:8080/classB/laptop/all/',
+    bikes: 'https://midtier-classa.onrender.com/classA/bikes/all/',
+    toys: 'https://midtier-classa.onrender.com/classA/toys/all/',
+    books: 'https://midtier-classb.onrender.com/classB/books/all/',
+    dvds: 'https://midtier-classb.onrender.com/classB/dvd/all/',
+    food: 'https://midtier-classa.onrender.com/classA/food/all/',
+    laptops: 'https://midtier-classb.onrender.com/classB/laptops/all/',
   };
 
   cache: { [key: string]: Product[] } = {

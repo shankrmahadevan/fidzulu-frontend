@@ -23,6 +23,15 @@ export class NavbarComponent {
     location: faLocationDot
   }
 
+  options = [
+    {name: 'Bikes', link: 'bikes'},
+    {name: 'Food', link: 'food'},
+    {name: 'Toys', link: 'toys'},
+    {name: 'Books', link: 'books'},
+    {name: 'DVDs', link: 'dvds'},
+    {name: 'Laptops', link: 'laptops'},
+  ]
+
   onFocus = false
 
   country = "US-NC"
