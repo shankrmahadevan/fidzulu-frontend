@@ -6,7 +6,7 @@ import { Product } from '../models/product';
 })
 export class SessionService {
   private location: 'US-NC' | 'IE' | 'IN' = 'US-NC';
-  public category = ''
+  public category = 'toys'
   private cartKey = 'shoppingCart'; 
   public itemsInCart: Product[] = [];
 

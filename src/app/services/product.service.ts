@@ -41,7 +41,7 @@ export class ProductService {
   getAllProducts(productType: string): Observable<Product[]> {
     productType = productType.toLowerCase();
     let url = this.urls[productType]
-    if(this.cache[productType].length == 0){
+    if(!this.cache.hasOwnProperty(productType) ||this.cache[productType].length == 0){
       return this.httpClient.get<Product[]>(url);
     } else{
       return of(this.cache[productType])
