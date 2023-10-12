@@ -10,9 +10,9 @@
           <p><fa-icon [icon]="icons.location"></fa-icon> {{country}}</p>
         </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="location-dropdown">
-            <button (click)="changeCountry('India')" ngbDropdownItem >India</button>
-            <button (click)="changeCountry('US')" ngbDropdownItem>US</button>
-            <button (click)="changeCountry('SC')" ngbDropdownItem>SC</button>
+          <button (click)="changeCountry('IN')" ngbDropdownItem>India</button>
+          <button (click)="changeCountry('US-NC')" ngbDropdownItem>US</button>
+          <button (click)="changeCountry('IE')" ngbDropdownItem>Ireland</button>
         </div>
     </div>
     </div>
@@ -39,7 +39,7 @@
     </div>
     <div class="nav-btns">
         <button class="nav-btn" routerLink="/Cart">
-            Cart
+          &nbsp;
         </button>
     </div>
 </div>
@@ -51,45 +51,45 @@
 	</div>
 	<div class="modal-body">
 		<div class="sidebar-options">
-            <p>Bikes</p>
+      <a [routerLink]="['/products/bikes',]">Bikes</a>
             <fa-icon [icon]="icons.arrow"></fa-icon>
         </div>
         <hr>
         <div class="sidebar-options">
-            <p>Food</p>
+          <a [routerLink]="['/products/food',]">Food</a>
             <fa-icon [icon]="icons.arrow"></fa-icon>
         </div>
         <hr>
         <div class="sidebar-options">
-            <p>Toys</p>
+          <a [routerLink]="['/products/toys',]">Toys</a>
             <fa-icon [icon]="icons.arrow"></fa-icon>
         </div>
         <hr>
         <div class="sidebar-options">
-            <p>Books</p>
+          <a [routerLink]="['/products/books',]">Books</a>
             <fa-icon [icon]="icons.arrow"></fa-icon>
         </div>
         <hr>
         <div class="sidebar-options">
-            <p>DVDs</p>
+          <a [routerLink]="['/products/dvds',]">DVDs</a>
             <fa-icon [icon]="icons.arrow"></fa-icon>
         </div>
         <hr>
         <div class="sidebar-options">
-            <p>Laptops</p>
+          <a [routerLink]="['/products/laptops',]">Laptops</a>
             <fa-icon [icon]="icons.arrow"></fa-icon>
         </div>
         <hr>
 
-        <div class="sidebar-options mobile-sidebar">
-            <p>Login</p>
-            <fa-icon [icon]="icons.arrow"></fa-icon>
-        </div>
+    <!--        <div class="sidebar-options mobile-sidebar">-->
+    <!--            <p>Login</p>-->
+    <!--            <fa-icon [icon]="icons.arrow"></fa-icon>-->
+    <!--        </div>-->
         <hr class="mobile-sidebar">
-        <div class="sidebar-options mobile-sidebar">
-            <p>Cart</p>
-            <fa-icon [icon]="icons.arrow"></fa-icon>
-        </div>
+    <!--        <div class="sidebar-options mobile-sidebar">-->
+    <!--            <p>Cart</p>-->
+    <!--            <fa-icon [icon]="icons.arrow"></fa-icon>-->
+    <!--        </div>-->
 
 
 	</div>

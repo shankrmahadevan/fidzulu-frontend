@@ -5,6 +5,10 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.sidebar-options > a{
+  text-decoration: none;
+  color:black;
+}
 #navbar-button{
   color: white;
 }

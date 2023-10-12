@@ -7,30 +7,42 @@
           <div class="mb-4">
             <h5>Filter by Ratings</h5>
             <div class="rating-filter">
-              <button
-                (click)="setRatingFilter(1)"
-                [class.active]="filters.rating === 1"
-              >
-                <img src="assets/star4.PNG" alt="1 Star" class="star-image" />
-              </button>
-              <button
-                (click)="setRatingFilter(2)"
-                [class.active]="filters.rating === 2"
-              >
-                <img src="assets/star3.PNG" alt="2 Stars" class="star-image" />
-              </button>
-              <button
-                (click)="setRatingFilter(3)"
-                [class.active]="filters.rating === 3"
-              >
-                <img src="assets/star2.PNG" alt="3 Stars" class="star-image" />
-              </button>
-              <button
-                (click)="setRatingFilter(4)"
-                [class.active]="filters.rating === 4"
-              >
-                <img src="assets/star1.PNG" alt="4 Stars" class="star-image" />
-              </button>
+              <!--              <button-->
+              <!--                (click)="setRatingFilter(1)"-->
+              <!--                [class.active]="filters.rating === 1"-->
+              <!--              >-->
+              <!--                <img src="assets/star4.PNG" alt="1 Star" class="star-image" />-->
+              <!--              </button>-->
+              <!--              <button-->
+              <!--                (click)="setRatingFilter(2)"-->
+              <!--                [class.active]="filters.rating === 2"-->
+              <!--              >-->
+              <!--                <img src="assets/star3.PNG" alt="2 Stars" class="star-image" />-->
+              <!--              </button>-->
+              <!--              <button-->
+              <!--                (click)="setRatingFilter(3)"-->
+              <!--                [class.active]="filters.rating === 3"-->
+              <!--              >-->
+              <!--                <img src="assets/star2.PNG" alt="3 Stars" class="star-image" />-->
+              <!--              </button>-->
+              <!--              <button-->
+              <!--                (click)="setRatingFilter(4)"-->
+              <!--                [class.active]="filters.rating === 4"-->
+              <!--              >-->
+              <!--                <img src="assets/star1.PNG" alt="4 Stars" class="star-image" />-->
+              <!--              </button>-->
+              <ul class="list-inline rating-list">
+                <li><i class="fa fa-star" [ngClass]="filters.rating === 5? 'fa fa-star star-bg': 'fa fa-star' "
+                       title="Rate 5" (click)="setRatingFilter(5)"></i></li>
+                <li><i class="fa fa-star" [ngClass]="filters.rating >= 4? 'fa fa-star star-bg': 'fa fa-star' "
+                       title="Rate 4" (click)="setRatingFilter(4)"></i></li>
+                <li><i class="fa fa-star" [ngClass]="filters.rating >= 3? 'fa fa-star star-bg': 'fa fa-star' "
+                       title="Rate 3" (click)="setRatingFilter(3)"></i></li>
+                <li><i class="fa fa-star" [ngClass]="filters.rating >= 2? 'fa fa-star star-bg': 'fa fa-star' "
+                       title="Rate 2" (click)="setRatingFilter(2)"></i></li>
+                <li><i class="fa fa-star" [ngClass]="filters.rating >= 1? 'fa fa-star star-bg': 'fa fa-star' "
+                       title="Rate 1" (click)="setRatingFilter(1)"></i></li>
+              </ul>
             </div>
           </div>
           <!-- Filter by Price Range -->
@@ -40,7 +52,7 @@
             <h5>Filter by Price Range</h5>
             <div class="row">
               <div class="col-md-4 text-end">
-                <span>{{ productListService.minPrice | currency }}</span>
+                <span>{{ currencySymbol}}{{ productListService.minPrice | number:'1.0-0' }}</span>
               </div>
               <div class="col-md-4 text-center">
                 <input
@@ -50,15 +62,16 @@
                   [max]="productListService.maxPrice"
                   [step]="1"
                   id="customRange3"
+                  [value]="productListService.maxPrice"
                   (input)="updatePriceRange($event)"
                 />
               </div>
               <div class="col-md-4 text-start">
-                <span>{{ productListService.maxPrice | currency }}</span>
+                <span>{{ currencySymbol}}{{ productListService.maxPrice | number:'1.0-0' }}</span>
               </div>
             </div>
             <div class="text-center mt-2">
-              <span>{{ currentPrice | currency }}</span>
+              <span>{{ currencySymbol}}{{ currentPrice | number : '1.0-0'}}</span>
             </div>
           </div>
 

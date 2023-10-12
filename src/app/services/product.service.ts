@@ -9,12 +9,12 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ProductService {
   urls: { [key: string]: string } = {
-    bikes: 'http://localhost:3000/bikes/all/' + this.sessionService.getLocation(),
-    toys: 'http://localhost:3033/toys/all/' + this.sessionService.getLocation(),
-    books: 'http://localhost:3034/books/all/' + this.sessionService.getLocation(),
-    dvds: 'http://localhost:8080/classB/dvd/all/' + this.sessionService.getLocation(),
-    food: 'http://localhost:8080/classA/food/all/' + this.sessionService.getLocation(),
-    laptops: 'http://localhost:8080/classB/laptop/all/' + this.sessionService.getLocation(),
+    bikes: 'http://localhost:3000/bikes/all/',
+    toys: 'http://localhost:3033/toys/all/',
+    books: 'http://localhost:3034/books/all/',
+    dvds: 'http://localhost:8080/classB/dvd/all/',
+    food: 'http://localhost:8080/classA/food/all/',
+    laptops: 'http://localhost:8080/classB/laptop/all/',
   };
 
   cache: { [key: string]: Product[] } = {
@@ -31,9 +31,10 @@ export class ProductService {
 
   getAllProducts(productType: string): Observable<Product[]> {
     productType = productType.toLowerCase();
+    let location = this.sessionService.getLocation();
     let url = this.urls[productType]
     if (this.cache[productType].length == 0) {
-      return this.httpClient.get<Product[]>(url);
+      return this.httpClient.get<Product[]>(url + location);
     } else {
       return of(this.cache[productType])
     }
@@ -66,23 +67,13 @@ export class ProductService {
     }
 
     // Filter by price range
-    console.log('Filters price:', filters);
     if (filters.price != undefined) {
-      console.log('Filters fjhsdkfjhskdfjhk');
       let priceFiltered = [];
       for (let product of filteredProducts) {
-        console.log(
-          'Product price: ',
-          product.price,
-          filters.price.min,
-          filters.price.max
-        );
         if (
           product.price >= filters.price.min &&
           product.price <= filters.price.max
         ) {
-          //console.log("Product price: ",product.price, filters.price.min, filters.price.max);
-          console.log('Inside the conditional of price filter');
           priceFiltered.push(product);
         }
       }
@@ -99,7 +90,6 @@ export class ProductService {
         }
       }
       filteredProducts = [...ratingFiltered];
-      console.log('After rating Filter', filteredProducts);
     }
 
     // return this.sortProducts(filteredProducts, filters.sortBy);

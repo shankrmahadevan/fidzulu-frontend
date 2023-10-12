@@ -12,10 +12,11 @@
       </div>
     </div>
     <div class="price">
-      <p><span class="text-muted">M.R.P: </span><s>Rs.{{get_mrp() | number:'.2'}}</s></p>
-      <p><span class="text-muted">Price: </span><span id="final-price">Rs. {{get_final_price()  | number:'.2'}}</span>
+      <p><span class="text-muted">M.R.P: </span><s>{{currency}} {{get_mrp() | number:'.2'}}</s></p>
+      <p><span class="text-muted">Price: </span><span
+        id="final-price">{{currency}} {{get_final_price()  | number:'.2'}}</span>
       </p>
-      <p><span class="text-muted">You Save: </span><span id="you-save">Rs. {{get_you_save() | number:'.2'}}
+      <p><span class="text-muted">You Save: </span><span id="you-save">{{currency}}  {{get_you_save() | number:'.2'}}
         (10%)</span></p>
     </div>
     <div class="description">
@@ -60,7 +61,7 @@
             <div class="card-body">
               <img src="{{similarProduct.image}}" style="height:150px;width:260px">
               <h5 class="card-title">{{similarProduct.name}}</h5>
-              <p class="card-text">{{ similarProduct.price }}</p>
+              <p class="card-text">{{currency}}{{ similarProduct.price }}</p>
               <div class="similar-card-footer" class="d-flex justify-content-between">
                 <button type="button" class="btn btn-success">+ Quick Add</button>
                 <div class="stars">

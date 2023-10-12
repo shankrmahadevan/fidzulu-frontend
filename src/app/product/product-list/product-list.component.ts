@@ -3,7 +3,7 @@ import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductListService } from '../product-list.service';
 import { SessionService } from 'src/app/services/session.service';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, ParamMap, Params} from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
@@ -15,8 +15,8 @@ export class ProductListComponent {
   @Input() products: Product[] = [];
   @Input() filters: any = {
     brands: [],
-    price: { min: 0, max: 1000 },
-    rating: 4.2,
+    price: { min: 0, max: Infinity },
+    rating: 1,
     sortBy: 'latest',
   };
   filteredProducts!: Product[];
@@ -24,17 +24,32 @@ export class ProductListComponent {
   pagedProducts: any[] = [];
   pageSize: number = 5;
   currentPage: number = 1;
+  private searchParam!: Params;
 
   constructor(
     private productService: ProductService,
+    private sessionService: SessionService,
     private productListService: ProductListService,
     private route:ActivatedRoute
   ) {
   }
 
   ngOnInit() {
-    this.category = this.route.snapshot.paramMap.get("category") || "";
-    let keyWords = this.route.snapshot.queryParamMap.get("q");
+    this.route.params.subscribe(
+      (param) => {
+        this.searchParam = param
+        this.render(param)
+      }
+    )
+    this.sessionService.locationChange.subscribe(
+      () => {
+        this.render(this.searchParam)
+      }
+    )
+  }
+  render(param:Params){
+    this.category = param["category"] || "";
+    let keyWords = param["q"];
     this.productService.getAllProducts(this.category).subscribe((data) => {
       this.products = data;
       this.productListService.products.next(data)
@@ -67,6 +82,8 @@ export class ProductListComponent {
       filter
     );
     this.setPage(1);
+    filter.price = {min:0, max:Infinity}
+    this.filters = filter
   }
 
   setPage(page: number) {

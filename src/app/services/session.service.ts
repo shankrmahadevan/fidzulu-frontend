@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root',
 })
 export class SessionService {
-  private location: 'US-NC' | 'IE' | 'IN' = 'US-NC';
+  private location: 'US-NC' | 'IE' | 'IN' = "US-NC";
+  public locationChange: Subject<number> = new Subject<number>();
   public category = ''
   private cartKey = 'shoppingCart';
   public itemsInCart: Product[] = [];
@@ -23,8 +25,21 @@ export class SessionService {
 
   public setLocation(value: 'US-NC' | 'IE' | 'IN') {
     this.location = value;
+    this.locationChange.next(1)
   }
 
+  public getCurrencySymbol(location: string): string {
+    switch (location) {
+      case 'US-NC':
+        return '$'; // United States currency symbol
+      case 'IE':
+        return '€'; // Euro currency symbol
+      case 'IN':
+        return '₹'; // Indian Rupee currency symbol
+      default:
+        return ''; // Default currency symbol if location doesn't match
+    }
+  }
   public addToCart(product: Product) {
     this.itemsInCart.push(product);
     sessionStorage.setItem(this.cartKey, JSON.stringify(this.itemsInCart));
