@@ -14,3 +14,7 @@
 .card {
   border: none; /* This removes the border */
 }
+
+.star-rating-container {
+  display: flex;
+}

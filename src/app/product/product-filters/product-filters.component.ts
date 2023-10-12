@@ -4,6 +4,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { ProductListService } from '../product-list.service';
 import {ActivatedRoute} from "@angular/router";
 import { Product } from 'src/app/models/product';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-product-filters',
@@ -22,6 +23,8 @@ export class ProductFiltersComponent{
     private route:ActivatedRoute
   ) {
   }
+
+  starIcon = faStar
 
   ngOnInit(){
     this.productListService.products.subscribe((data) => {
@@ -63,5 +66,15 @@ export class ProductFiltersComponent{
     let index = array.indexOf(elementToRemove);
     // Use the splice() method to remove the element
     return array.splice(index, 1);
+  }
+
+  filterStarRating = 0
+
+  setStarRating(rating: number) {
+    if(this.filterStarRating === rating) {
+      this.filterStarRating = 0;
+    } else {
+      this.filterStarRating = rating
+    }
   }
 }
