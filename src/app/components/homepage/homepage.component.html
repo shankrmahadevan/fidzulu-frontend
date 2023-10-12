@@ -2,10 +2,12 @@
 
   <ngb-carousel [interval]="3000">
     <ng-template ngbSlide *ngFor="let image of images">
-      <div class="carousel-wrapper">
-        <img src="assets/images/covers/{{image.name}}" [alt]="image.caption">
-        <div class="caption">Shop {{image.caption}}</div>
-      </div>
+      <a [routerLink]="['/products',image.caption]">
+        <div class="carousel-wrapper">
+          <img src="assets/images/covers/{{image.name}}" [alt]="image.caption">
+          <div class="caption">Shop {{image.caption}}</div>
+        </div>
+    </a>
     </ng-template>
   </ngb-carousel>
 

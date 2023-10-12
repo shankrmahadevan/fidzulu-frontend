@@ -28,7 +28,6 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
               "./node_modules/@fortawesome/fontawesome-free/css/all.min.css"
-
             ],
             "scripts": []
           },
@@ -94,8 +93,59 @@
             ],
             "scripts": []
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "fidzulu-frontend:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fidzulu-frontend:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "fidzulu-frontend:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "fidzulu-frontend:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "fidzulu-frontend:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fidzulu-frontend:serve:production"
+            }
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@cypress/schematic",
+      "@schematics/angular"
+    ]
   }
 }
