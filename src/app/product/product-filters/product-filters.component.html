@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body">
           <!-- Filter by Ratings -->
-          <div class="mb-4">
+          <!-- <div class="mb-4">
             <h5>Filter by Ratings</h5>
             <div class="rating-filter">
               <button
@@ -32,14 +32,21 @@
                 <img src="assets/star1.PNG" alt="4 Stars" class="star-image" />
               </button>
             </div>
-          </div>
-
+          </div> -->
+          <h5>Filter by Ratings</h5>
+          <ul class="list-inline rating-list">
+            <li><i class="fa fa-star" [ngClass]="filters.rating === 5? 'fa fa-star star-bg': 'fa fa-star' " title="Rate 5" (click)="setRatingFilter(5)"></i></li>
+            <li><i class="fa fa-star" [ngClass]="filters.rating >= 4? 'fa fa-star star-bg': 'fa fa-star' " title="Rate 4" (click)="setRatingFilter(4)"></i></li>
+            <li><i class="fa fa-star" [ngClass]="filters.rating >= 3? 'fa fa-star star-bg': 'fa fa-star' " title="Rate 3" (click)="setRatingFilter(3)"></i></li>
+            <li><i class="fa fa-star" [ngClass]="filters.rating >= 2? 'fa fa-star star-bg': 'fa fa-star' " title="Rate 2" (click)="setRatingFilter(2)"></i></li>
+            <li><i class="fa fa-star" [ngClass]="filters.rating >= 1? 'fa fa-star star-bg': 'fa fa-star' " title="Rate 1" (click)="setRatingFilter(1)"></i></li>
+          </ul>
           <!-- Filter by Price Range -->
           <div class="mb-4">
             <h5>Filter by Price Range</h5>
             <div class="row">
               <div class="col-md-4 text-end">
-                <span>{{ productListService.minPrice | currency }}</span>
+                <span>{{ productListService.minPrice }}</span>
               </div>
               <div class="col-md-4 text-center">
                 <input
@@ -83,8 +90,12 @@
           <div>
             <h5 style="margin: 5%">Sort By</h5>
             <div class="button-container">
-              <button class="btn-link" (click)="setSortingFilter('oldest')">Oldest to Latest</button>
-              <button class="btn-link" (click)="setSortingFilter('latest')">Latest to Oldest</button>
+              <button class="btn-link" (click)="setSortingFilter('oldest')">
+                Oldest to Latest
+              </button>
+              <button class="btn-link" (click)="setSortingFilter('latest')">
+                Latest to Oldest
+              </button>
             </div>
           </div>
           <!-- Apply and Clear Filters Buttons -->
